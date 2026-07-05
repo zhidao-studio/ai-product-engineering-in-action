@@ -2,11 +2,16 @@
 
 Document-Driven AI Product Delivery Harness
 
-## 1. 项目目标
+## 1. 仓库定位
 
-本仓库用于定义文档驱动的 AI 产品交付方法论。
+本仓库用于沉淀一套文档驱动的 AI 产品交付方法论。
 
-它提供可复用的 harness 模板、code delivery 模板和 checklist，帮助非技术人通过文档工程约束 AI，完成可验收、可追溯、可维护的产品交付。
+它的核心目标是：
+
+```text
+用 harness、工程基线、代码任务包和 checklist，
+约束 AI 从产品想法走向可验收的代码交付。
+```
 
 ## 2. 核心链路
 
@@ -33,44 +38,19 @@ AI 编码
 ## 3. 仓库结构
 
 ```text
-docs/
-  README.md
-  methodology/
-  engineering/
-  lessons/
-
-templates/
-  harness/
-  code_delivery/
-
-checklists/
-  harness/
-  code_delivery/
-
-prompts/
-  ai/
-  agent/
-  review/
-
-examples/
-  01_minimal_harness/
+docs/        方法论、工程基线、教学化内容
+templates/   可复用模板
+checklists/  可执行检查清单
+prompts/     AI / Agent / Review 提示词
+examples/    填好的示例
 ```
 
-## 4. 推荐阅读顺序
+## 4. 从哪里开始
+
+请从这里开始：
 
 ```text
-1. docs/README.md
-2. docs/methodology/01_GOAL_AND_SCOPE.md
-3. docs/methodology/02_CORE_PRINCIPLES.md
-4. docs/methodology/03_HARNESS_LAYERS.md
-5. docs/methodology/04_HOW_TO_BUILD_HARNESS.md
-6. docs/methodology/05_COVERAGE_CHECK.md
-7. docs/engineering/01_ENGINEERING_BASELINE.md
-8. templates/harness/
-9. templates/code_delivery/
-10. checklists/harness/
-11. checklists/code_delivery/
-12. examples/01_minimal_harness/
+docs/README.md
 ```
 
 ## 5. 当前工程基线
