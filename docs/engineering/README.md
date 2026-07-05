@@ -24,11 +24,12 @@ AI 在什么工程规范里写代码？
 | 文件 | 作用 |
 |---|---|
 | `01_ENGINEERING_BASELINE.md` | 工程基线总说明 |
+| `02_ENGINEERING_QUALITY_GUARDRAILS.md` | 工程质量红线：依赖、分层、安全、可维护性、测试、配置、日志 |
 
 ## 和模板的关系
 
 ```text
-docs/engineering/           说明当前推荐基线
+docs/engineering/           说明当前推荐基线和工程质量红线
 templates/code_delivery/    提供可复用模板
 checklists/code_delivery/   提供检查清单
 ```
