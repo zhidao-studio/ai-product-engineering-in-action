@@ -1,18 +1,22 @@
 # 图文课程
 
-这里是 v0.3 图文课程区，也是当前课程的主学习入口。
+这里是当前课程的主学习入口。
 
 ## 当前学习建议
 
 当前学习请以 `visual/` 目录下的图文版为主。
 
-不要再切换到 `hands-on-lesson-*` 或旧的 `demo-lesson-*` 文件。
-
 原 `lesson-xx` 文件只保留用于理解概念和原则。
 
 ## 图文课目标
 
-让非技术学员不用先理解大量概念，也能按图文步骤完成第一版实战样例。
+让非技术学员按图文步骤理解：
+
+```text
+如何通过一整套完整文档，控制需求如何被实现。
+```
+
+课程重点不是某个具体样例工程，也不是某个固定 Agent，而是文档控制链路。
 
 ## 图文课结构
 
@@ -33,16 +37,16 @@
 
 | 课时 | 文件 | 产物 |
 |---|---|---|
-| 第 1 课 | `lesson-01-visual-ai-development-is-engineering.md` | AI 工具分工表 |
+| 第 1 课 | `lesson-01-visual-ai-development-is-engineering.md` | 文档控制体系总览 |
 | 第 2 课 | `lesson-02-visual-from-idea-to-prd.md` | 项目总说明、产品需求文档 |
-| 第 3 课 | `lesson-03-visual-page-list-and-user-flow.md` | 页面清单、用户流程 |
-| 第 4 课 | `lesson-04-visual-ai-rules.md` | AI 执行规则 |
-| 第 5 课 | `lesson-05-visual-task-driven-coding.md` | 任务清单、首页任务 |
-| 第 6 课 | `lesson-06-visual-review-and-human-acceptance.md` | 代码审查、模拟用户验收 |
+| 第 3 课 | `lesson-03-visual-page-list-and-user-flow.md` | 页面清单、用户流程、数据规范 |
+| 第 4 课 | `lesson-04-visual-ai-rules.md` | 技术结构、任务清单、Agent 实现指南 |
+| 第 5 课 | `lesson-05-visual-task-driven-coding.md` | 标准 Agent 任务输入、实现验证记录 |
+| 第 6 课 | `lesson-06-visual-review-and-human-acceptance.md` | 文档映射审查、模拟用户验收、下一轮任务 |
 
 ## 截图说明
 
-真实截图放在 v0.4 补充。
+真实截图放在 v0.4.x 补充。
 
 当前版本先用：
 
@@ -50,12 +54,20 @@
 [截图占位：这里放 xxx 截图]
 ```
 
-你本地运行微信开发者工具后，可以按照 `screenshot-guide.md` 补图。
+后续截图重点不是展示某个平台工具，而是展示：
 
-## v0.4 目标
+- 文档如何生成
+- 文档如何拆成任务
+- Agent 如何按任务执行
+- 实现如何回溯到文档
+- 用户验收如何发现问题并转成任务
 
-下一阶段重点不再扩课程结构，而是补真实截图和标注：
+## v0.4 当前目标
 
-- 替换截图占位
-- 标注“看哪里 / 点哪里 / 复制哪里 / 检查哪里”
-- 补完整首页 → 详情 → 收藏 → 收藏页闭环截图
+当前阶段重点是完成文档控制体系一致性：
+
+- 主课程统一到“文档控制需求实现”
+- 方法论文档统一到“文档控制 + Agent 执行”
+- 提示词统一到“先文档、后任务、再实现”
+- 模板统一到“需求控制、任务控制、验收控制”
+- 样例工程作为承载形态，而不是课程核心
