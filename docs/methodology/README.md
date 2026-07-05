@@ -10,7 +10,7 @@
 |---|---|
 | `01_GOAL_AND_SCOPE.md` | 定义目标、边界和读者 |
 | `02_CORE_PRINCIPLES.md` | 定义核心原则 |
-| `03_HARNESS_LAYERS.md` | 定义 harness 的分层结构 |
+| `03_HARNESS_LAYERS.md` | 定义 harness 的分层结构，以及和 code delivery 的关系 |
 | `04_HOW_TO_BUILD_HARNESS.md` | 定义如何构造 harness |
 | `05_COVERAGE_CHECK.md` | 定义如何检查 harness 是否覆盖主要 AI 产出维度 |
 
@@ -18,8 +18,19 @@
 
 ```text
 定义一套文档驱动的产品交付流程，
-让 AI 编码和 AI 执行的产出可约束、可验收、可追溯。
+让 AI 从产品想法到代码交付的产出可约束、可验收、可追溯。
 ```
+
+## 和工程基线的关系
+
+```text
+docs/methodology/  解释方法论和交付流程
+docs/engineering/  定义具体工程基线和质量红线
+```
+
+方法论只回答“为什么要这样组织交付”。
+
+工程基线回答“AI 在什么工程规范里写代码”。
 
 ## 不是为了什么
 
