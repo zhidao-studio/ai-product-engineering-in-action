@@ -1,6 +1,0 @@
-<view class="container">
-  <view class="card"><view class="title">设置</view><view class="subtitle">示例项目的基础设置页。</view></view>
-  <view class="card setting-item" bindtap="clearFavorites"><view>清空收藏</view><view class="setting-desc">清除本地收藏数据</view></view>
-  <view class="card setting-item" bindtap="goAbout"><view>关于本案例</view><view class="setting-desc">查看课程和版本说明</view></view>
-  <view class="version">版本 {{version}}</view>
-</view>
