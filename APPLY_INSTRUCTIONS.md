@@ -1,39 +1,40 @@
-# v0.2 更新包应用说明
+# v0.2.2 术语修正包应用说明
 
-这个更新包用于把 `ai-product-engineering-in-action` 从 v0.1 初始化骨架升级到 v0.2 可学习课程骨架。
+本次更新只做一件事：
 
-## 推荐方式：新建分支 + 复制覆盖 + 提 PR
+统一课程中的交付物表述，避免使用 “Demo / 演示版本” 这类表达。
+
+## 统一术语
+
+推荐使用：
+
+- 样例
+- 实战样例
+- 样例工程
+- 第一版可运行样例
+- 第一版可运行样例产品
+- 微信小程序实战样例
+- 钓鱼露营地点收藏小程序样例
+
+不再使用：
+
+- Demo
+- App Demo
+- 小程序 Demo
+- 演示版本
+- 演示样品
+
+## 提交方式
 
 ```bash
-git clone https://github.com/zhidao-studio/ai-product-engineering-in-action.git
-cd ai-product-engineering-in-action
+git checkout -b chore/v0.2.2-wording-fix
 
-git checkout -b feat/v0.2-course-content
-
-# 把本更新包里的 docs、prompts、README.md 复制到仓库根目录
-# 如果提示覆盖，确认覆盖
+# 解压本更新包，把内容复制到仓库根目录，覆盖同名文件
 
 git status
 git add .
-git commit -m "feat: add v0.2 course content and human acceptance workflow"
-git push -u origin feat/v0.2-course-content
+git commit -m "chore: standardize sample terminology"
+git push -u origin chore/v0.2.2-wording-fix
 ```
 
-然后在 GitHub 上创建 Pull Request：
-
-```text
-base: main
-compare: feat/v0.2-course-content
-```
-
-## 本次更新内容
-
-1. 补齐 6 节 MVP 课程正文。
-2. 新增产品验证步骤。
-3. 新增非技术用户决策树。
-4. 新增版本迭代指南。
-5. 新增工具与成本说明。
-6. 扩展问题排查手册。
-7. 增加“模拟用户验收”机制。
-8. 增强 ChatGPT / AI 编码工具 / DeepSeek 提示词。
-9. 调整工具表述：从强绑定 Codex 改成“AI 编码工具可替换”。
+然后在 GitHub 上创建 Pull Request。
