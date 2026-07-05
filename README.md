@@ -28,7 +28,7 @@ Document-Driven AI Product Delivery Harness
 |---|---|---|
 | B 方法论目标 | 定义文档驱动的 AI 产品交付流程 | 方法论文档 |
 | C 工具化目标 | 提供可复用的 harness 模板和 checklist | 模板、检查清单 |
-| A 教学目标 | 让非技术人能学会并实际使用 | 图文课、示例、操作说明 |
+| A 教学目标 | 让非技术人能学会并实际使用 | 课程化说明、示例、操作说明 |
 
 当前优先级：
 
@@ -92,49 +92,46 @@ checklist
 - 让问题能被追溯
 - 让变更能被控制
 
-## 5. 新仓库结构
+## 5. 仓库结构
 
 ```text
 docs/
-  00_start_here/        从这里开始
-  01_methodology/       方法论：流程、原则、分层、构造方法
-  02_lessons/           教学化内容：面向非技术人的学习路径
+  README.md              文档总入口
+  methodology/           方法论：目标、原则、分层、构造方法、覆盖检查
+  lessons/               教学化内容：后续面向非技术人的学习路径
 
 templates/
-  harness/              可复用 harness 模板
+  harness/               可复用 harness 模板
 
 checklists/
-  harness/              可复用检查清单
+  harness/               可复用检查清单
 
 prompts/
-  ai/                   通用大模型提示词
-  agent/                Agent 执行提示词
-  review/               审查和验收提示词
+  ai/                    通用大模型提示词
+  agent/                 Agent 执行提示词
+  review/                审查和验收提示词
 
 examples/
-  01_minimal_harness/   最小可用 harness 示例
+  01_minimal_harness/    最小可用 harness 示例
 ```
-
-旧的课程、旧样例、旧模板会逐步删除或重写，不再作为主线。
 
 ## 6. 推荐阅读顺序
 
 ```text
-1. docs/00_start_here/README.md
-2. docs/01_methodology/01_GOAL_AND_SCOPE.md
-3. docs/01_methodology/02_CORE_PRINCIPLES.md
-4. docs/01_methodology/03_HARNESS_LAYERS.md
-5. docs/01_methodology/04_HOW_TO_BUILD_HARNESS.md
-6. templates/harness/
-7. checklists/harness/
-8. examples/01_minimal_harness/
+1. docs/README.md
+2. docs/methodology/01_GOAL_AND_SCOPE.md
+3. docs/methodology/02_CORE_PRINCIPLES.md
+4. docs/methodology/03_HARNESS_LAYERS.md
+5. docs/methodology/04_HOW_TO_BUILD_HARNESS.md
+6. docs/methodology/05_COVERAGE_CHECK.md
+7. templates/harness/
+8. checklists/harness/
+9. examples/01_minimal_harness/
 ```
 
 ## 7. 当前阶段
 
-当前处于结构重构阶段。
-
-目标是删除旧结构，重新建立一套围绕以下内容的新体系：
+当前主线已经收敛为：
 
 ```text
 方法论
