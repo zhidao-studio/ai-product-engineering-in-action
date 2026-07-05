@@ -9,7 +9,7 @@ Document-Driven AI Product Delivery Harness
 它的核心目标是：
 
 ```text
-用 harness、工程基线、代码任务包和 checklist，
+用约束框架、工程基线、代码任务包和检查清单，
 约束 AI 从产品想法走向可验收的代码交付。
 ```
 
@@ -38,11 +38,11 @@ AI 编码
 ## 3. 仓库结构
 
 ```text
-docs/        方法论、工程基线、教学化内容
-templates/   可复用模板
-checklists/  可执行检查清单
-prompts/     AI / Agent / Review 提示词
-examples/    填好的示例
+文档/        方法论、工程基线、教学化内容
+模板/        可复用模板
+检查清单/    可执行检查清单
+提示词/      AI / Agent / Review 提示词
+示例/        填好的示例
 ```
 
 ## 4. 从哪里开始
@@ -50,7 +50,7 @@ examples/    填好的示例
 请从这里开始：
 
 ```text
-docs/README.md
+文档/说明.md
 ```
 
 ## 5. 当前工程基线
@@ -66,5 +66,5 @@ docs/README.md
 
 ```text
 不是让 AI 替你做产品，
-而是用 harness 和工程基线约束 AI 完成可验收的产品交付。
+而是用约束框架和工程基线约束 AI 完成可验收的产品交付。
 ```
