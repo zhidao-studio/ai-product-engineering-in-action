@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#f8fafc"/>
+  <text x="60" y="64" font-size="34" font-family="Arial" font-weight="700" fill="#111827">第 3 课：页面清单和用户流程闭环</text>
+  <text x="60" y="102" font-size="18" font-family="Arial" fill="#64748b">判断标准：用户做了一个动作，就必须看到对应结果</text>
+  <rect x="80" y="150" width="510" height="430" rx="18" fill="#fff1f2" stroke="#fb7185"/>
+  <text x="110" y="196" font-size="24" font-family="Arial" font-weight="700" fill="#9f1239">错误流程：断了</text>
+  <g font-family="Arial" font-size="19" font-weight="700" fill="#111827">
+    <rect x="130" y="260" width="110" height="62" rx="12" fill="#ffffff" stroke="#fecdd3"/>
+    <text x="166" y="299">首页</text>
+    <rect x="300" y="260" width="110" height="62" rx="12" fill="#ffffff" stroke="#fecdd3"/>
+    <text x="336" y="299">详情</text>
+    <rect x="470" y="260" width="110" height="62" rx="12" fill="#ffffff" stroke="#fecdd3"/>
+    <text x="506" y="299">收藏</text>
+  </g>
+  <path d="M240 291 L300 291" stroke="#9f1239" stroke-width="3" marker-end="url(#redArrow)"/>
+  <path d="M410 291 L470 291" stroke="#9f1239" stroke-width="3" marker-end="url(#redArrow)"/>
+  <text x="125" y="390" font-size="18" font-family="Arial" fill="#111827">问题：</text>
+  <text x="125" y="425" font-size="18" font-family="Arial" fill="#111827">1. 用户收藏后去哪看结果？</text>
+  <text x="125" y="458" font-size="18" font-family="Arial" fill="#111827">2. 收藏是否成功？</text>
+  <text x="125" y="491" font-size="18" font-family="Arial" fill="#111827">3. 有没有结果承接页面？</text>
+  <rect x="690" y="150" width="510" height="430" rx="18" fill="#ecfdf5" stroke="#34d399"/>
+  <text x="720" y="196" font-size="24" font-family="Arial" font-weight="700" fill="#065f46">正确流程：闭环</text>
+  <g font-family="Arial" font-size="19" font-weight="700" fill="#111827">
+    <rect x="720" y="260" width="100" height="62" rx="12" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="752" y="299">首页</text>
+    <rect x="860" y="260" width="100" height="62" rx="12" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="892" y="299">详情</text>
+    <rect x="1000" y="260" width="100" height="62" rx="12" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="1032" y="299">收藏</text>
+    <rect x="860" y="390" width="160" height="62" rx="12" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="894" y="429">收藏页查看</text>
+  </g>
+  <path d="M820 291 L860 291" stroke="#047857" stroke-width="3" marker-end="url(#greenArrow)"/>
+  <path d="M960 291 L1000 291" stroke="#047857" stroke-width="3" marker-end="url(#greenArrow)"/>
+  <path d="M1050 322 C1050 365 1020 396 1020 421" stroke="#047857" stroke-width="3" fill="none" marker-end="url(#greenArrow)"/>
+  <text x="730" y="520" font-size="19" font-family="Arial" fill="#111827">结果承接：用户能看到已收藏地点</text>
+  <rect x="380" y="620" width="520" height="54" rx="14" fill="#111827"/>
+  <text x="420" y="654" font-size="22" font-family="Arial" font-weight="700" fill="#ffffff">核心规则：动作之后必须有结果</text>
+  <defs>
+    <marker id="redArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9f1239"/></marker>
+    <marker id="greenArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#047857"/></marker>
+  </defs>
+</svg>
