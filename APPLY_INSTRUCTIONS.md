@@ -1,40 +1,44 @@
-# v0.2.2 术语修正包应用说明
+# v0.3 图文课程包应用说明
 
-本次更新只做一件事：
+本次更新目标：
 
-统一课程中的交付物表述，避免使用 “Demo / 演示版本” 这类表达。
+把课程从“方法论文档”升级为“非技术学员可跟做的图文课程”。
 
-## 统一术语
+## 本次新增
 
-推荐使用：
+```text
+docs/02_lessons/visual/
+├── README.md
+├── lesson-01-visual-ai-development-is-engineering.md
+├── lesson-02-visual-from-idea-to-prd.md
+├── lesson-03-visual-page-list-and-user-flow.md
+├── lesson-04-visual-ai-rules.md
+├── lesson-05-visual-task-driven-coding.md
+├── lesson-06-visual-review-and-human-acceptance.md
+└── screenshot-guide.md
+```
 
-- 样例
-- 实战样例
-- 样例工程
-- 第一版可运行样例
-- 第一版可运行样例产品
-- 微信小程序实战样例
-- 钓鱼露营地点收藏小程序样例
-
-不再使用：
-
-- Demo
-- App Demo
-- 小程序 Demo
-- 演示版本
-- 演示样品
-
-## 提交方式
+## 推荐提交方式
 
 ```bash
-git checkout -b chore/v0.2.2-wording-fix
+git checkout -b feat/v0.3-visual-lessons
 
-# 解压本更新包，把内容复制到仓库根目录，覆盖同名文件
+# 解压本更新包，把 docs 复制到仓库根目录，覆盖或新增文件
 
 git status
 git add .
-git commit -m "chore: standardize sample terminology"
-git push -u origin chore/v0.2.2-wording-fix
+git commit -m "feat: add v0.3 visual lesson guides"
+git push -u origin feat/v0.3-visual-lessons
 ```
 
-然后在 GitHub 上创建 Pull Request。
+## 说明
+
+本包先使用：
+
+- Mermaid 流程图
+- 页面示意图
+- 表格步骤图
+- 截图占位说明
+- 操作检查清单
+
+后续你在本地运行微信开发者工具后，可以按 `screenshot-guide.md` 补真实截图。
