@@ -7,8 +7,8 @@
 | 目录 | 作用 |
 |---|---|
 | `ai/` | 通用大模型提示词，用于起草 harness |
-| `agent/` | Agent 执行提示词，用于按 harness 执行任务 |
-| `review/` | 审查提示词，用于检查 harness 和 AI 产物 |
+| `agent/` | Agent 执行提示词，用于按 harness 或工程基线执行任务 |
+| `review/` | 审查提示词，用于检查 harness、代码交付和 AI 产物 |
 
 ## 使用原则
 
