@@ -1,0 +1,5 @@
+.place-title-row { display:flex; justify-content:space-between; gap:16rpx; }
+.place-name { font-size:32rpx; font-weight:700; }
+.favorite-badge { font-size:22rpx; color:#1677ff; background:#eef4ff; border-radius:999rpx; padding:8rpx 14rpx; }
+.tag-text { margin-top:12rpx; font-size:24rpx; color:#1677ff; }
+.summary { margin-top:12rpx; font-size:26rpx; color:#3f4652; line-height:1.6; }

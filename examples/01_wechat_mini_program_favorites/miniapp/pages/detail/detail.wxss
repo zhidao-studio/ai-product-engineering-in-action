@@ -1,0 +1,3 @@
+.tag-text { margin-top:12rpx; font-size:24rpx; color:#1677ff; }
+.section-title { font-size:30rpx; font-weight:700; margin-bottom:12rpx; }
+.body-text { font-size:28rpx; color:#3f4652; line-height:1.7; }

@@ -1,0 +1,10 @@
+<view class="container">
+  <view wx:if="{{loading}}" class="card subtitle">加载中...</view>
+  <view wx:elif="{{error}}" class="card"><view class="title">加载失败</view><view class="subtitle">{{error}}</view></view>
+  <view wx:elif="{{place}}">
+    <view class="card"><view class="title">{{place.name}}</view><view class="subtitle">{{place.area}} · {{place.distance}}</view><view class="tag-text">{{place.tagText}}</view></view>
+    <view class="card"><view class="section-title">地点说明</view><view class="body-text">{{place.description}}</view></view>
+    <view class="card"><view class="section-title">提醒</view><view class="body-text">{{place.tips}}</view></view>
+    <view class="{{isFavorite ? 'secondary-button' : 'primary-button'}}" bindtap="toggleFavorite">{{isFavorite ? '取消收藏' : '收藏地点'}}</view>
+  </view>
+</view>

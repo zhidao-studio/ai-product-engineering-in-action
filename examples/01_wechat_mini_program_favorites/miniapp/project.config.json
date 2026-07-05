@@ -1,0 +1,15 @@
+{
+  "description": "AI 产品工程实战 - 微信小程序收藏夹案例",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "latest",
+  "appid": "touristappid",
+  "projectname": "ai-product-engineering-favorites",
+  "condition": {}
+}

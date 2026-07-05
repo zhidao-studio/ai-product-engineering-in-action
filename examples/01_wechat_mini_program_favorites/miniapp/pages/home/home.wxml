@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="hero card"><view class="title">钓鱼露营地点收藏</view><view class="subtitle">用 AI 产品工程方法做出的第一个微信小程序 Demo。</view></view>
+  <view wx:if="{{loading}}" class="card subtitle">加载中...</view>
+  <view wx:elif="{{error}}" class="card"><view class="title">加载失败</view><view class="subtitle">{{error}}</view></view>
+  <view wx:elif="{{places.length === 0}}" class="card"><view class="title">暂无地点</view><view class="subtitle">后续可以接入真实地点数据。</view></view>
+  <view wx:else>
+    <view wx:for="{{places}}" wx:key="id" class="card place-card" bindtap="goDetail" data-id="{{item.id}}">
+      <view class="place-title-row"><view class="place-name">{{item.name}}</view><view wx:if="{{item.isFavorite}}" class="favorite-badge">已收藏</view></view>
+      <view class="subtitle">{{item.area}} · {{item.distance}}</view><view class="tag-text">{{item.tagText}}</view><view class="summary">{{item.summary}}</view>
+    </view>
+  </view>
+</view>

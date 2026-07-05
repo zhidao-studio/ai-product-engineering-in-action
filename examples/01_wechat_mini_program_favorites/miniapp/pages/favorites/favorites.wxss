@@ -1,0 +1,2 @@
+.place-name { font-size:32rpx; font-weight:700; }
+.tag-text { margin-top:12rpx; font-size:24rpx; color:#1677ff; }

@@ -1,0 +1,4 @@
+<view class="container">
+  <view class="card"><view class="title">关于本案例</view><view class="subtitle">这是《AI 产品工程实战》的第一个案例，用于演示如何把产品想法拆成文档、任务和可运行的小程序。</view></view>
+  <view class="card"><view class="section-title">你学到什么</view><view class="body-text">1. 如何写项目总说明</view><view class="body-text">2. 如何拆页面清单</view><view class="body-text">3. 如何写 AI 执行规则</view><view class="body-text">4. 如何让 Codex 按任务写代码</view><view class="body-text">5. 如何用审查清单控制质量</view></view>
+</view>
