@@ -1,28 +1,42 @@
 # 课程正文
 
-这里放 6 节 MVP 课程正文、手把手演示文件和图文课程。
+这里放 6 节基础课程正文和图文课程。
 
 ## 当前学习入口
 
-当前对学员学习，建议优先阅读：
+当前对学员学习，统一以图文课程为主：
 
 ```text
 docs/02_lessons/visual/
 ```
 
-也就是图文版课程。
+也就是说，学员第一遍学习时，不需要在多个课程入口之间切换。
 
-原因：
+## 文件关系
 
-- 图文版有流程图。
-- 图文版有输入示例。
-- 图文版有输出示例。
-- 图文版有检查清单。
-- 图文版更适合非技术学员跟做。
+当前只保留两类课程文件：
 
-## 三类课程文件
+### 1. 图文主课程
 
-### 1. 基础课程正文
+```text
+visual/
+```
+
+作用：
+
+- 给流程图
+- 给页面示意
+- 给操作步骤
+- 给输入示例
+- 给输出示例
+- 给截图占位
+- 给检查清单
+- 给常见错误
+- 给下一步
+
+这是当前主学习路径。
+
+### 2. 基础课程正文
 
 ```text
 lesson-01-ai-development-is-engineering.md
@@ -39,50 +53,30 @@ lesson-06-review-and-maintenance.md
 - 讲原则
 - 讲每节课为什么重要
 
-### 2. 手把手演示文件
+这些文件用于理解原理，不作为第一学习入口。
+
+## 不再保留的课程层级
+
+不再保留单独的：
 
 ```text
-hands-on-lesson-01-ai-development-is-engineering.md
-hands-on-lesson-02-from-idea-to-prd.md
-hands-on-lesson-03-page-list-and-user-flow.md
-hands-on-lesson-04-ai-rules.md
-hands-on-lesson-05-task-driven-coding.md
-hands-on-lesson-06-review-and-human-acceptance.md
+hands-on-lesson-xx
 ```
 
-作用：
+原因：
 
-- 给起始输入
-- 给实际提示词
-- 给 AI 输出示例
-- 给检查标准
-- 给追问修正示例
-- 给最终合格产物
-
-### 3. 图文课程
-
-```text
-visual/
-```
-
-作用：
-
-- 给流程图
-- 给页面示意
-- 给操作步骤
-- 给截图占位
-- 给真实截图补充规范
+- `visual/` 已经包含可跟做步骤。
+- 多一层文件会增加学员理解成本。
+- 当前课程目标是让学员直接沿着图文路径完成实战样例。
 
 ## 推荐学习顺序
 
 ```text
-先看 visual/ 图文版
+先看 visual/ 图文主课程
 ↓
 需要理解原理时，再看 lesson-xx 基础正文
 ↓
-需要复制操作时，看 hands-on-lesson-xx
-↓
-最后填写自己的项目文档
+最后填写自己的项目文档和任务清单
 ```
 
 ## 术语说明
@@ -93,7 +87,6 @@ visual/
 样例
 实战样例
 样例工程
-手把手演示
 图文课程
 ```
 
