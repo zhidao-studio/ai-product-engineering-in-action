@@ -12,7 +12,7 @@
 | `02_CORE_PRINCIPLES.md` | 定义核心原则 |
 | `03_HARNESS_LAYERS.md` | 定义 harness 的分层结构 |
 | `04_HOW_TO_BUILD_HARNESS.md` | 定义如何构造 harness |
-| `05_LEAK_TEST_CHECK.md` | 定义如何检查 harness 是否有漏洞 |
+| `05_COVERAGE_CHECK.md` | 定义如何检查 harness 是否覆盖主要 AI 产出维度 |
 
 ## 方法论目标
 
