@@ -60,7 +60,11 @@ ngrok
 Docker Compose（按需）
 ```
 
-## 3. 推荐工程结构
+## 3. 推荐目标项目结构
+
+这里描述的是“被 AI 生成或维护的目标项目结构”，不是当前方法论仓库自身的目录结构。
+
+推荐目标项目采用 monorepo：
 
 ```text
 project-root/
@@ -71,6 +75,14 @@ project-root/
   scripts/
   README.md
 ```
+
+目标项目中：
+
+- `docs/` 存放该具体项目的 harness、工程规格、任务包和验收记录。
+- `frontend/` 存放 Vue 前端工程。
+- `backend/` 存放 Spring Boot 后端工程。
+- `infra/` 存放本地基础设施配置。
+- `scripts/` 存放本地辅助脚本。
 
 ## 4. 前端边界
 
