@@ -1,3 +1,0 @@
-.empty { padding:60rpx 24rpx; text-align:center; color:#8f959e; }
-.empty-title { font-size:30rpx; font-weight:600; }
-.empty-desc { margin-top:12rpx; font-size:26rpx; }
