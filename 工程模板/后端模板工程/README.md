@@ -25,6 +25,7 @@ src/main/java/com/example/template/
   TemplateApplication.java
   common/       统一响应和错误码
   exception/    业务异常和全局异常处理
+  auth/         最小登录和用户信息样板
   config/       基础配置
   status/       服务状态样例
 ```
@@ -36,7 +37,15 @@ src/main/java/com/example/template/
 ./mvnw spring-boot:run
 ```
 
-## 5. AI 修改边界
+## 5. 最小认证样板
+
+当前 `auth/` 目录只提供最小登录结构，用于约束接口、DTO、Service、Controller 和测试分层。
+
+它不是完整权限平台。
+
+真实项目需要认证、权限、密码哈希、会话策略时，必须先更新接口契约、安全约束和代码任务包。
+
+## 6. AI 修改边界
 
 AI 可以新增业务 Controller、Service、Repository、DTO、Model 和测试。
 
@@ -47,6 +56,9 @@ common/ApiResponse.java
 common/ErrorCode.java
 exception/BusinessException.java
 exception/GlobalExceptionHandler.java
+auth/LoginRequest.java
+auth/LoginResponse.java
+auth/UserInfo.java
 ```
 
-AI 不得绕过统一响应和统一异常处理。
+AI 不得绕过统一响应、统一异常处理和 DTO 校验。
