@@ -1,0 +1,7 @@
+<view class="page">
+  <view class="card">
+    <view class="title">微信小程序生产力入口</view>
+    <view class="desc">这是一个可被 AI 扩展的小程序首页。</view>
+    <van-button type="primary" block bind:click="goForm">填写表单</van-button>
+  </view>
+</view>
