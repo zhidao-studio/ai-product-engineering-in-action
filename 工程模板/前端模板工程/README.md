@@ -30,7 +30,7 @@ src/
   pages/          页面级组件
   components/     可复用组件
   services/       API 调用
-  interceptors/   统一请求和错误拦截
+  interceptors/   统一请求和错误处理说明
   stores/         Pinia 状态
   router/         路由
   types/          TypeScript 类型
@@ -57,9 +57,9 @@ AI 不得删除：
 
 ```text
 src/services/http.ts
-src/interceptors/errorInterceptor.ts
+src/interceptors/README.md
 src/styles/design-tokens.css
-scripts/check-frontend.sh
+package.json 中的检查命令
 ```
 
 AI 不得绕过统一 API 封装直接在页面里写 `fetch`。
