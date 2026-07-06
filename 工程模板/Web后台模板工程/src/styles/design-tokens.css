@@ -1,0 +1,15 @@
+:root {
+  --color-primary: #2563eb;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-danger: #dc2626;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --radius-card: 12px;
+  --shadow-card: 0 8px 24px rgb(15 23 42 / 8%);
+}
