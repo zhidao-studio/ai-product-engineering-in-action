@@ -1,0 +1,10 @@
+<view class="page">
+  <view class="card">
+    <van-field value="{{title}}" label="标题" placeholder="请输入标题" bind:change="onTitleChange" />
+    <van-field value="{{remark}}" label="备注" placeholder="请输入备注" type="textarea" bind:change="onRemarkChange" />
+    <view class="submit-wrap">
+      <van-button type="primary" block loading="{{submitting}}" bind:click="submitForm">提交</van-button>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+</view>
