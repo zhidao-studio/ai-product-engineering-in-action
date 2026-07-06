@@ -9,7 +9,7 @@ Document-Driven AI Product Delivery Harness
 它的核心目标是：
 
 ```text
-用约束框架、工程基线、代码任务包和检查清单，
+用约束框架、工程基线、工程模板、代码任务包和检查清单，
 约束 AI 从产品想法走向可验收的代码交付。
 ```
 
@@ -24,11 +24,13 @@ Document-Driven AI Product Delivery Harness
 ↓
 工程基线
 ↓
+复制工程模板
+↓
 代码任务包
 ↓
-AI 编码
+AI 在模板工程内编码
 ↓
-验证
+自动化验证
 ↓
 使用验收
 ↓
@@ -38,8 +40,9 @@ AI 编码
 ## 3. 仓库结构
 
 ```text
-文档/        方法论、工程基线、教学化内容
+文档/        方法论、工程基线、操作手册、教学化内容
 样板/        可复用空白样板
+工程模板/    可直接复制使用的前端和后端模板工程
 检查清单/    可执行检查清单
 指令/        AI / Agent / Review 指令
 案例/        填好的案例
@@ -56,7 +59,7 @@ AI 编码
 ## 5. 当前工程基线
 
 ```text
-前端：Vue 3 + Vite + TypeScript + Vue Router + Pinia
+前端：Vue 3 + Vite + TypeScript + Vue Router + Pinia + Element Plus
 后端：Java + Spring Boot 单体应用，不使用 Spring Cloud
 基础设施：macOS + Homebrew + nginx + ngrok
 工程形态：monorepo
@@ -65,6 +68,6 @@ AI 编码
 ## 6. 最重要的一句话
 
 ```text
-不是让 AI 替你做产品，
-而是用约束框架和工程基线约束 AI 完成可验收的产品交付。
+不是让 AI 从 0 搭工程，
+而是先用文档定义边界，再用工程模板固定结构，最后让 AI 在模板内完成可验证的业务交付。
 ```
