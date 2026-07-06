@@ -8,6 +8,7 @@
 
 ```text
 Vant
+Vue Vben Admin 的 apps-packages 分离思路
 ```
 
 ## 2. 技术栈
@@ -37,7 +38,20 @@ src/
   styles/       移动端主题变量和全局样式
 ```
 
-## 4. 命令
+## 4. 多端基座
+
+使用本模板前，必须先阅读：
+
+```text
+工程模板/前端多端基座说明.md
+工程模板/多端共享层模板/README.md
+```
+
+H5 可以复用共享层中的 API 类型、业务模型和设计 token。
+
+H5 不得直接引用 Web 后台、小程序或 iOS 的页面、组件和端专属能力。
+
+## 5. 命令
 
 ```bash
 npm install
@@ -50,7 +64,7 @@ npm run build
 npm run check
 ```
 
-## 5. AI 修改边界
+## 6. AI 修改边界
 
 AI 可以新增业务页面、组件、服务、类型和测试。
 
