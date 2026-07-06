@@ -25,9 +25,8 @@ src/main/java/com/example/template/
   TemplateApplication.java
   common/       统一响应和错误码
   exception/    业务异常和全局异常处理
-  config/       CORS、认证、基础配置
-  auth/         登录样例
-  health/       健康检查样例
+  config/       基础配置
+  status/       服务状态样例
 ```
 
 ## 4. 命令
