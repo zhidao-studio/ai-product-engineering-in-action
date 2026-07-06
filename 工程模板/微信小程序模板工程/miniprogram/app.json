@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/form/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "生产力工具",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
