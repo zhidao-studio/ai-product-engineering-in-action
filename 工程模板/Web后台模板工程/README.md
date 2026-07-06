@@ -8,6 +8,7 @@
 
 ```text
 vue-element-plus-admin mini 思路
+Vue Vben Admin 的 monorepo / apps-packages 分离思路
 ```
 
 第一版只保留后台产品最小通用能力，不引入复杂业务模块。
@@ -42,7 +43,20 @@ src/
   styles/        设计变量和全局样式
 ```
 
-## 4. 命令
+## 4. 多端基座
+
+使用本模板前，必须先阅读：
+
+```text
+工程模板/前端多端基座说明.md
+工程模板/多端共享层模板/README.md
+```
+
+Web 后台可以复用共享层中的 API 类型、业务模型和设计 token。
+
+Web 后台不得直接引用 H5、小程序或 iOS 的页面、组件和端专属能力。
+
+## 5. 命令
 
 ```bash
 npm install
@@ -55,7 +69,7 @@ npm run build
 npm run check
 ```
 
-## 5. AI 修改边界
+## 6. AI 修改边界
 
 AI 可以新增业务页面、服务、类型、组件和测试。
 
