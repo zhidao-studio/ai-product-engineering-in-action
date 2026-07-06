@@ -1,0 +1,23 @@
+{
+  "name": "ai-product-weapp-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint miniprogram --ext .ts,.js --max-warnings=0",
+    "lint:fix": "eslint miniprogram --ext .ts,.js --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "jest --passWithNoTests",
+    "check": "npm run lint && npm run typecheck && npm run test"
+  },
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "eslint": "^9.0.0",
+    "jest": "^29.7.0",
+    "miniprogram-api-typings": "^4.0.0",
+    "miniprogram-ci": "^2.0.0",
+    "typescript": "~5.8.0"
+  }
+}
