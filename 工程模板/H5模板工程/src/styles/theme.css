@@ -1,0 +1,12 @@
+:root {
+  --app-primary: #1989fa;
+  --app-bg: #f7f8fa;
+  --app-surface: #ffffff;
+  --app-text: #1f2937;
+  --app-text-secondary: #6b7280;
+  --app-danger: #ee0a24;
+  --app-space-sm: 8px;
+  --app-space-md: 16px;
+  --app-space-lg: 24px;
+  --app-radius-card: 12px;
+}
