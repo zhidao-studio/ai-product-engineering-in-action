@@ -34,7 +34,7 @@ src/
   stores/       状态管理
   router/       路由
   types/        类型定义
-  styles/       移动端设计变量和全局样式
+  styles/       移动端主题变量和全局样式
 ```
 
 ## 4. 命令
@@ -58,7 +58,7 @@ AI 不得绕过：
 
 ```text
 src/services/http.ts
-src/styles/design-tokens.css
+src/styles/theme.css
 src/router/index.ts
 package.json 中的检查命令
 ```
