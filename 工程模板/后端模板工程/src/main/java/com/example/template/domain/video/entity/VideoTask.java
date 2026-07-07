@@ -1,6 +1,7 @@
 package com.example.template.domain.video.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -16,8 +17,14 @@ public class VideoTask {
     private String scriptSummary;
     private String storyboardSummary;
     private String status;
+    private Long createdBy;
     private LocalDateTime createdAt;
+    private Long updatedBy;
     private LocalDateTime updatedAt;
+    @TableField("is_valid")
+    private Boolean isValid;
+    @TableField("is_deleted")
+    private Boolean isDeleted;
 
     public Long getId() {
         return id;
@@ -67,6 +74,14 @@ public class VideoTask {
         this.status = status;
     }
 
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -75,11 +90,35 @@ public class VideoTask {
         this.createdAt = createdAt;
     }
 
+    public Long getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(Long updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Boolean getIsValid() {
+        return isValid;
+    }
+
+    public void setIsValid(Boolean valid) {
+        isValid = valid;
+    }
+
+    public Boolean getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 }
