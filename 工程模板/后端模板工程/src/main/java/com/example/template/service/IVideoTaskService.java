@@ -10,9 +10,9 @@ public interface IVideoTaskService {
 
     List<VideoTaskVo> listTasks();
 
-    VideoTaskVo getTask(Long id);
+    VideoTaskVo getTask(String id);
 
     VideoTaskVo createTask(CreateVideoTaskBo createBo);
 
-    VideoTaskVo updateTask(Long id, UpdateVideoTaskBo updateBo);
+    VideoTaskVo updateTask(String id, UpdateVideoTaskBo updateBo);
 }
