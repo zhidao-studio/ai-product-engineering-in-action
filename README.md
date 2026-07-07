@@ -46,7 +46,7 @@ AI 在模板工程内编码
 ```text
 文档/        方法论、工程基线、操作手册、教学化内容
 样板/        可复用空白样板
-工程模板/    可直接复制使用的 Web、后端、H5、小程序、iOS 模板工程
+工程模板/    可直接复制使用的 Web、H5、微信小程序、iOS、后端多类独立工程模板
 检查清单/    可执行检查清单
 指令/        AI / Agent / Review 指令
 案例/        填好的案例
@@ -67,7 +67,10 @@ Web 后台：Vue 3 + Vite + TypeScript + Vue Router + Pinia + Element Plus
 H5：Vue 3 + Vite + TypeScript + Vant
 小程序：原生微信小程序 + TypeScript + Vant Weapp
 iOS：SwiftUI + MVVM
-后端：Java + Spring Boot 单体应用，不使用 Spring Cloud
+后端：Java + Spring Boot + MyBatis-Plus + Flyway 单体应用，不使用 Spring Cloud
+数据库：MySQL 优先；主键 32 位字符串；每表 7 要素；时间 trigger 维护
+码值：数据库码值是源头，后端常量一致，接口契约记录，前端只翻译不改码
+部署：本地开发优先，微信云托管按需适配
 多端原则：多个工程，独立建设；接口一致，代码不共享
 ```
 
