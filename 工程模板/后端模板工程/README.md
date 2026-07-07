@@ -16,21 +16,31 @@ iOS
 
 默认不使用 Spring Cloud，不引入注册中心、配置中心、网关、消息队列和分布式事务。
 
-## 2. 技术栈
+## 2. 成熟技术栈
+
+本模板默认采用成熟、常用、容易被团队维护的后端组合：
 
 ```text
 Java 17+
-Spring Boot
+Spring Boot 3
 Spring Web
 Spring Validation
-MyBatis-Plus 或 JPA（二选一，由项目决定）
+MyBatis-Plus
 Flyway
-JUnit
+MySQL
+H2（测试）
+JUnit 5
 ```
 
-## 3. 分层结构
+参考思路：
 
-本模板参考 RuoYi-Vue-Plus 的分层思路，但只保留轻量单体所需结构。
+```text
+RuoYi-Vue-Plus 的 controller / domain / mapper / service / service.impl 分层
+```
+
+只借成熟分层和常用组件，不引入多租户、工作流、OSS、Redis、动态数据源等复杂平台能力。
+
+## 3. 分层结构
 
 ```text
 src/main/java/com/example/template/
@@ -38,8 +48,10 @@ src/main/java/com/example/template/
   common/                 统一响应和错误码
   exception/              业务异常和全局异常处理
   controller/v1/          API v1 控制器
+  domain/*/entity/        数据库实体对象
   domain/*/bo/            业务入参对象
   domain/*/vo/            接口返回对象
+  mapper/                 MyBatis-Plus Mapper
   service/                Service 接口
   service/impl/           Service 实现
   status/                 服务状态样例
@@ -80,30 +92,48 @@ Service 必须优先定义接口，再提供实现类：
 ```text
 service/IAuthService.java
 service/impl/AuthServiceImpl.java
+service/IVideoTaskService.java
+service/impl/VideoTaskServiceImpl.java
 ```
 
 Controller 只依赖 Service 接口，不直接依赖实现类。
 
 Controller 只处理协议层逻辑，不写业务规则。
 
-## 7. 命令
+## 7. 数据访问规则
+
+数据访问默认使用 MyBatis-Plus。
+
+规则：
+
+- Entity 放在 `domain/*/entity/`。
+- Mapper 放在 `mapper/`。
+- BO 只用于接收业务入参。
+- VO 只用于对外返回。
+- 不直接把 Entity 暴露给前端。
+- 表结构变更必须通过 Flyway migration。
+
+## 8. 已包含样板
+
+当前模板包含两类样板：
+
+```text
+认证样板：AuthController + IAuthService + AuthServiceImpl
+业务 CRUD 样板：VideoTaskController + IVideoTaskService + VideoTaskServiceImpl + VideoTaskMapper + Flyway 建表
+```
+
+业务 CRUD 样板用于指导后续业务模块按同样结构扩展。
+
+## 9. 命令
 
 ```bash
 ./mvnw test
 ./mvnw spring-boot:run
 ```
 
-## 8. 最小认证样板
+## 10. AI 修改边界
 
-当前认证样板只提供最小登录结构，用于约束 Controller、BO、VO、Service 接口、Service 实现和测试分层。
-
-它不是完整权限平台。
-
-真实项目需要认证、权限、密码哈希、会话策略时，必须先更新接口契约、安全约束和代码任务包。
-
-## 9. AI 修改边界
-
-AI 可以新增业务 Controller、Service、Repository、BO、VO、Model 和测试。
+AI 可以新增业务 Controller、Service、Mapper、Entity、BO、VO 和测试。
 
 AI 不得删除：
 
@@ -117,4 +147,4 @@ service/impl/AuthServiceImpl.java
 controller/v1/AuthController.java
 ```
 
-AI 不得绕过统一响应、统一异常处理、DTO 校验、API 版本规则和 Service 接口分层。
+AI 不得绕过统一响应、统一异常处理、参数校验、API 版本规则、Service 接口分层、MyBatis-Plus Mapper 分层和 Flyway migration。
