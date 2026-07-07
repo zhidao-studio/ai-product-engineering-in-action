@@ -17,6 +17,8 @@ import java.util.List;
 @Service
 public class VideoTaskServiceImpl implements IVideoTaskService {
 
+    private static final long SYSTEM_USER_ID = 0L;
+
     private final VideoTaskMapper videoTaskMapper;
 
     public VideoTaskServiceImpl(VideoTaskMapper videoTaskMapper) {
@@ -26,6 +28,8 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
     @Override
     public List<VideoTaskVo> listTasks() {
         return videoTaskMapper.selectList(new LambdaQueryWrapper<VideoTask>()
+                        .eq(VideoTask::getIsValid, true)
+                        .eq(VideoTask::getIsDeleted, false)
                         .orderByDesc(VideoTask::getCreatedAt))
                 .stream()
                 .map(this::toVo)
@@ -34,7 +38,10 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
 
     @Override
     public VideoTaskVo getTask(Long id) {
-        VideoTask task = videoTaskMapper.selectById(id);
+        VideoTask task = videoTaskMapper.selectOne(new LambdaQueryWrapper<VideoTask>()
+                .eq(VideoTask::getId, id)
+                .eq(VideoTask::getIsValid, true)
+                .eq(VideoTask::getIsDeleted, false));
         if (task == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND);
         }
@@ -50,15 +57,22 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
         task.setScriptSummary(createBo.scriptSummary());
         task.setStoryboardSummary(createBo.storyboardSummary());
         task.setStatus("draft");
+        task.setCreatedBy(SYSTEM_USER_ID);
         task.setCreatedAt(now);
+        task.setUpdatedBy(SYSTEM_USER_ID);
         task.setUpdatedAt(now);
+        task.setIsValid(true);
+        task.setIsDeleted(false);
         videoTaskMapper.insert(task);
         return toVo(task);
     }
 
     @Override
     public VideoTaskVo updateTask(Long id, UpdateVideoTaskBo updateBo) {
-        VideoTask task = videoTaskMapper.selectById(id);
+        VideoTask task = videoTaskMapper.selectOne(new LambdaQueryWrapper<VideoTask>()
+                .eq(VideoTask::getId, id)
+                .eq(VideoTask::getIsValid, true)
+                .eq(VideoTask::getIsDeleted, false));
         if (task == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND);
         }
@@ -68,6 +82,7 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
         task.setScriptSummary(updateBo.scriptSummary());
         task.setStoryboardSummary(updateBo.storyboardSummary());
         task.setStatus(updateBo.status());
+        task.setUpdatedBy(SYSTEM_USER_ID);
         task.setUpdatedAt(LocalDateTime.now());
         videoTaskMapper.updateById(task);
         return toVo(task);
