@@ -31,7 +31,6 @@ XCTest
 
 ```text
 Sources/App/
-  AppEntry.swift
   AppRootView.swift
   Features/
   Shared/
@@ -41,18 +40,13 @@ Sources/App/
 Tests/
 ```
 
-## 4. 多端基座
+## 4. 独立工程边界
 
-使用本模板前，必须先阅读：
+iOS 是独立工程。
 
-```text
-工程模板/前端多端基座说明.md
-工程模板/多端共享层模板/README.md
-```
+它和 Web 后台、H5、微信小程序的一致性通过接口契约保持，不通过共享前端代码保持。
 
-iOS 不能直接复用 TypeScript 文件，但必须对齐共享层中的接口字段、错误码、设计 token 命名和业务模型语义。
-
-iOS 不得直接复制 Web/H5/小程序页面结构，应使用 SwiftUI 原生体验重新表达。
+iOS 使用 SwiftUI 原生体验重新表达页面，不复制 Web/H5/小程序页面结构。
 
 ## 5. 使用方式
 
