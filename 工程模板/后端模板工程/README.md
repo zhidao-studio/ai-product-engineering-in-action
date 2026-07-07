@@ -100,9 +100,19 @@ Controller 只依赖 Service 接口，不直接依赖实现类。
 
 Controller 只处理协议层逻辑，不写业务规则。
 
-## 7. 数据访问规则
+## 7. 数据访问和数据库规则
 
 数据访问默认使用 MyBatis-Plus。
+
+数据库结构变更默认使用 Flyway。
+
+必须遵守：
+
+```text
+文档/工程基线/07_数据库设计规范.md
+样板/代码交付/05_数据库结构样板.md
+工程模板/后端模板工程/数据库规范说明.md
+```
 
 规则：
 
@@ -112,6 +122,8 @@ Controller 只处理协议层逻辑，不写业务规则。
 - VO 只用于对外返回。
 - 不直接把 Entity 暴露给前端。
 - 表结构变更必须通过 Flyway migration。
+- 新表必须先写入数据库结构文档。
+- 字段必须能追溯到接口契约。
 
 ## 8. 已包含样板
 
@@ -133,7 +145,7 @@ Controller 只处理协议层逻辑，不写业务规则。
 
 ## 10. AI 修改边界
 
-AI 可以新增业务 Controller、Service、Mapper、Entity、BO、VO 和测试。
+AI 可以新增业务 Controller、Service、Mapper、Entity、BO、VO、Flyway migration 和测试。
 
 AI 不得删除：
 
@@ -147,4 +159,4 @@ service/impl/AuthServiceImpl.java
 controller/v1/AuthController.java
 ```
 
-AI 不得绕过统一响应、统一异常处理、参数校验、API 版本规则、Service 接口分层、MyBatis-Plus Mapper 分层和 Flyway migration。
+AI 不得绕过统一响应、统一异常处理、参数校验、API 版本规则、Service 接口分层、MyBatis-Plus Mapper 分层、数据库设计规范和 Flyway migration。
