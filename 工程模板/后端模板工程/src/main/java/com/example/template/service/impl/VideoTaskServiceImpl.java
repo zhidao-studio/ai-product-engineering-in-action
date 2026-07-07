@@ -3,6 +3,7 @@ package com.example.template.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.example.template.common.DataFlag;
 import com.example.template.common.ErrorCode;
+import com.example.template.common.IdGenerator;
 import com.example.template.domain.video.bo.CreateVideoTaskBo;
 import com.example.template.domain.video.bo.UpdateVideoTaskBo;
 import com.example.template.domain.video.constant.VideoTaskStatus;
@@ -37,7 +38,7 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
     }
 
     @Override
-    public VideoTaskVo getTask(Long id) {
+    public VideoTaskVo getTask(String id) {
         VideoTask task = videoTaskMapper.selectOne(new LambdaQueryWrapper<VideoTask>()
                 .eq(VideoTask::getId, id)
                 .eq(VideoTask::getValidFlag, DataFlag.VALID)
@@ -52,6 +53,7 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
     public VideoTaskVo createTask(CreateVideoTaskBo createBo) {
         LocalDateTime now = LocalDateTime.now();
         VideoTask task = new VideoTask();
+        task.setId(IdGenerator.newId());
         task.setTitle(createBo.title());
         task.setTopic(createBo.topic());
         task.setScriptSummary(createBo.scriptSummary());
@@ -68,7 +70,7 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
     }
 
     @Override
-    public VideoTaskVo updateTask(Long id, UpdateVideoTaskBo updateBo) {
+    public VideoTaskVo updateTask(String id, UpdateVideoTaskBo updateBo) {
         VideoTask task = videoTaskMapper.selectOne(new LambdaQueryWrapper<VideoTask>()
                 .eq(VideoTask::getId, id)
                 .eq(VideoTask::getValidFlag, DataFlag.VALID)
