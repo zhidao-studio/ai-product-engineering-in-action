@@ -22,9 +22,9 @@ public class VideoTask {
     private Long updatedBy;
     private LocalDateTime updatedAt;
     @TableField("is_valid")
-    private Boolean isValid;
+    private Integer validFlag;
     @TableField("is_deleted")
-    private Boolean isDeleted;
+    private Integer deletedFlag;
 
     public Long getId() {
         return id;
@@ -106,19 +106,19 @@ public class VideoTask {
         this.updatedAt = updatedAt;
     }
 
-    public Boolean getIsValid() {
-        return isValid;
+    public Integer getValidFlag() {
+        return validFlag;
     }
 
-    public void setIsValid(Boolean valid) {
-        isValid = valid;
+    public void setValidFlag(Integer validFlag) {
+        this.validFlag = validFlag;
     }
 
-    public Boolean getIsDeleted() {
-        return isDeleted;
+    public Integer getDeletedFlag() {
+        return deletedFlag;
     }
 
-    public void setIsDeleted(Boolean deleted) {
-        isDeleted = deleted;
+    public void setDeletedFlag(Integer deletedFlag) {
+        this.deletedFlag = deletedFlag;
     }
 }
