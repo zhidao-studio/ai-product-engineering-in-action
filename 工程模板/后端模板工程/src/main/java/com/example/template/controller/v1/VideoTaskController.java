@@ -32,7 +32,7 @@ public class VideoTaskController {
     }
 
     @GetMapping("/{id}")
-    public ApiResponse<VideoTaskVo> getTask(@PathVariable Long id) {
+    public ApiResponse<VideoTaskVo> getTask(@PathVariable String id) {
         return ApiResponse.ok(videoTaskService.getTask(id));
     }
 
@@ -43,7 +43,7 @@ public class VideoTaskController {
 
     @PutMapping("/{id}")
     public ApiResponse<VideoTaskVo> updateTask(
-            @PathVariable Long id,
+            @PathVariable String id,
             @Valid @RequestBody UpdateVideoTaskBo updateBo
     ) {
         return ApiResponse.ok(videoTaskService.updateTask(id, updateBo));
