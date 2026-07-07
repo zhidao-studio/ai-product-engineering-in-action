@@ -1,9 +1,11 @@
 package com.example.template.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.example.template.common.DataFlag;
 import com.example.template.common.ErrorCode;
 import com.example.template.domain.video.bo.CreateVideoTaskBo;
 import com.example.template.domain.video.bo.UpdateVideoTaskBo;
+import com.example.template.domain.video.constant.VideoTaskStatus;
 import com.example.template.domain.video.entity.VideoTask;
 import com.example.template.domain.video.vo.VideoTaskVo;
 import com.example.template.exception.BusinessException;
@@ -17,8 +19,6 @@ import java.util.List;
 @Service
 public class VideoTaskServiceImpl implements IVideoTaskService {
 
-    private static final long SYSTEM_USER_ID = 0L;
-
     private final VideoTaskMapper videoTaskMapper;
 
     public VideoTaskServiceImpl(VideoTaskMapper videoTaskMapper) {
@@ -28,8 +28,8 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
     @Override
     public List<VideoTaskVo> listTasks() {
         return videoTaskMapper.selectList(new LambdaQueryWrapper<VideoTask>()
-                        .eq(VideoTask::getIsValid, true)
-                        .eq(VideoTask::getIsDeleted, false)
+                        .eq(VideoTask::getValidFlag, DataFlag.VALID)
+                        .eq(VideoTask::getRemovedFlag, DataFlag.NOT_DELETED)
                         .orderByDesc(VideoTask::getCreatedAt))
                 .stream()
                 .map(this::toVo)
@@ -40,8 +40,8 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
     public VideoTaskVo getTask(Long id) {
         VideoTask task = videoTaskMapper.selectOne(new LambdaQueryWrapper<VideoTask>()
                 .eq(VideoTask::getId, id)
-                .eq(VideoTask::getIsValid, true)
-                .eq(VideoTask::getIsDeleted, false));
+                .eq(VideoTask::getValidFlag, DataFlag.VALID)
+                .eq(VideoTask::getRemovedFlag, DataFlag.NOT_DELETED));
         if (task == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND);
         }
@@ -56,13 +56,13 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
         task.setTopic(createBo.topic());
         task.setScriptSummary(createBo.scriptSummary());
         task.setStoryboardSummary(createBo.storyboardSummary());
-        task.setStatus("draft");
-        task.setCreatedBy(SYSTEM_USER_ID);
+        task.setStatus(VideoTaskStatus.DRAFT);
+        task.setCreatedBy(DataFlag.SYSTEM_USER_ID);
         task.setCreatedAt(now);
-        task.setUpdatedBy(SYSTEM_USER_ID);
+        task.setUpdatedBy(DataFlag.SYSTEM_USER_ID);
         task.setUpdatedAt(now);
-        task.setIsValid(true);
-        task.setIsDeleted(false);
+        task.setValidFlag(DataFlag.VALID);
+        task.setRemovedFlag(DataFlag.NOT_DELETED);
         videoTaskMapper.insert(task);
         return toVo(task);
     }
@@ -71,8 +71,8 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
     public VideoTaskVo updateTask(Long id, UpdateVideoTaskBo updateBo) {
         VideoTask task = videoTaskMapper.selectOne(new LambdaQueryWrapper<VideoTask>()
                 .eq(VideoTask::getId, id)
-                .eq(VideoTask::getIsValid, true)
-                .eq(VideoTask::getIsDeleted, false));
+                .eq(VideoTask::getValidFlag, DataFlag.VALID)
+                .eq(VideoTask::getRemovedFlag, DataFlag.NOT_DELETED));
         if (task == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND);
         }
@@ -82,7 +82,7 @@ public class VideoTaskServiceImpl implements IVideoTaskService {
         task.setScriptSummary(updateBo.scriptSummary());
         task.setStoryboardSummary(updateBo.storyboardSummary());
         task.setStatus(updateBo.status());
-        task.setUpdatedBy(SYSTEM_USER_ID);
+        task.setUpdatedBy(DataFlag.SYSTEM_USER_ID);
         task.setUpdatedAt(LocalDateTime.now());
         videoTaskMapper.updateById(task);
         return toVo(task);
