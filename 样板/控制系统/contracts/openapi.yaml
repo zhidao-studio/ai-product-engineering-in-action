@@ -1,0 +1,38 @@
+openapi: 3.0.3
+info:
+  title: 示例接口契约
+  version: 0.1.0
+  description: |
+    本文件是目标项目的 OpenAPI 契约样板。
+    工程进入 contract_confirmed 之后，后端接口和前端调用必须以本文件为准。
+servers:
+  - url: /api/v1
+paths:
+  /health:
+    get:
+      summary: 健康检查
+      operationId: getHealth
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      required:
+        - code
+        - message
+        - data
+      properties:
+        code:
+          type: string
+          example: OK
+        message:
+          type: string
+          example: success
+        data:
+          nullable: true
