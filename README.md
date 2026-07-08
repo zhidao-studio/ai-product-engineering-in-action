@@ -98,6 +98,7 @@ AI 主线：读上下文 → 判阶段 → 判边界 → 执行任务
 指令/        AI / Agent / Review 指令
 案例/        填好的案例
 scripts/     AI 门禁脚本
+.github/     GitHub Actions 门禁工作流
 ```
 
 ## 7. 从哪里开始
@@ -131,13 +132,32 @@ iOS：SwiftUI + MVVM
 全局结构已冻结。
 最小机器门禁已实现。
 最小深度契约校验已实现。
+Git hook / CI 强制门禁已实现。
 专业级契约校验待实现。
 ```
 
-门禁入口：
+单项目门禁入口：
 
 ```bash
 bash scripts/check-ai-guard.sh <目标项目目录>
+```
+
+全项目门禁入口：
+
+```bash
+bash scripts/run-ai-guard-all.sh
+```
+
+安装本地 pre-commit 门禁：
+
+```bash
+bash scripts/install-ai-guard-hook.sh
+```
+
+CI 门禁：
+
+```text
+.github/workflows/ai-guard.yml
 ```
 
 当前门禁能检查：
@@ -152,7 +172,7 @@ Git diff 是否修改保护路径
 依赖变更是否在白名单内
 ```
 
-下一步优先把总图中的节点做实，例如 OpenAPI diff、数据库 DDL 解析、专业 SCA 依赖漏洞扫描，而不是继续横向新增规范文档。
+下一步优先把总图中的节点做实，例如 OpenAPI diff、数据库 DDL 解析、专业 SCA 依赖漏洞扫描、自动人话报告，而不是继续横向新增规范文档。
 
 ## 10. 最重要的一句话
 
