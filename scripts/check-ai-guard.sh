@@ -17,4 +17,13 @@ echo ""
 bash "$SCRIPT_DIR/check-ai-boundary.sh" "$TARGET_DIR"
 echo ""
 
+bash "$SCRIPT_DIR/check-openapi-contract.sh" "$TARGET_DIR"
+echo ""
+
+bash "$SCRIPT_DIR/check-database-schema.sh" "$TARGET_DIR"
+echo ""
+
+bash "$SCRIPT_DIR/check-dependency-whitelist.sh" "$TARGET_DIR"
+echo ""
+
 echo "[OK] AI 门禁检查全部完成。"
