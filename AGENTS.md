@@ -6,7 +6,7 @@
 
 ```text
 定义一套阶段受控的 AI 产品交付协议，
-提供控制系统、约束框架、原型预览、工程基线、工程模板、代码任务包、检查清单和最小门禁脚本，
+提供控制系统、约束框架、原型预览、工程基线、工程模板、代码任务包、检查清单和门禁脚本，
 让使用者能把产品想法推进到可验收的工程化交付。
 ```
 
@@ -74,6 +74,9 @@ scripts/     AI 门禁脚本
 文档/控制系统/01_阶段状态机.md
 样板/控制系统/AI_CONTEXT_PACK/00_当前阶段.md
 样板/控制系统/AI_CONTEXT_PACK/03_允许修改范围.yaml
+样板/控制系统/contracts/openapi.yaml
+样板/控制系统/contracts/database-schema.yaml
+样板/控制系统/contracts/dependency-whitelist.txt
 文档/工程基线/01_工程基线总说明.md
 文档/工程基线/02_工程质量红线.md
 文档/工程基线/06_前后端命名规范.md
@@ -108,6 +111,10 @@ bash scripts/check-ai-guard.sh <目标项目目录>
 目标项目是否具备 AI Context Pack
 当前阶段是否出现越级产物
 Git diff 是否修改保护路径
+契约/编码阶段是否具备 OpenAPI 契约
+契约/编码阶段是否具备数据库 Schema 契约
+数据库 Schema 是否声明 32 位字符串主键和 7 要素
+依赖变更是否在白名单内
 ```
 
 如果门禁不通过，不得声明任务完成。
