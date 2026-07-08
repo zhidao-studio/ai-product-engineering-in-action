@@ -1,0 +1,64 @@
+database:
+  type: mysql
+  timezone: UTC
+  id_strategy: "32位字符串，应用层生成，数据库不自增"
+
+tables:
+  - name: sample_entity
+    comment: 示例业务表
+    primary_key:
+      name: id
+      type: CHAR(32)
+      auto_increment: false
+    seven_elements:
+      id: true
+      created_by: true
+      created_at: true
+      updated_by: true
+      updated_at: true
+      is_valid: true
+      is_deleted: true
+    columns:
+      - name: id
+        type: CHAR(32)
+        nullable: false
+        comment: 32 位字符串主键
+      - name: name
+        type: VARCHAR(100)
+        nullable: false
+        comment: 名称
+      - name: created_by
+        type: CHAR(32)
+        nullable: false
+        default: "00000000000000000000000000000000"
+        comment: 创建人
+      - name: created_at
+        type: TIMESTAMP
+        nullable: false
+        maintained_by: trigger
+        comment: 创建时间
+      - name: updated_by
+        type: CHAR(32)
+        nullable: false
+        default: "00000000000000000000000000000000"
+        comment: 更新人
+      - name: updated_at
+        type: TIMESTAMP
+        nullable: false
+        maintained_by: trigger
+        comment: 更新时间
+      - name: is_valid
+        type: TINYINT(1)
+        nullable: false
+        default: 1
+        comment: 是否有效
+      - name: is_deleted
+        type: TINYINT(1)
+        nullable: false
+        default: 0
+        comment: 是否删除
+    indexes:
+      - name: idx_sample_entity_valid_deleted
+        columns:
+          - is_valid
+          - is_deleted
