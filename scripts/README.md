@@ -19,10 +19,12 @@ scripts/check-ai-boundary.sh            检查 Git diff 是否修改保护路径
 scripts/check-openapi-contract.sh       检查 OpenAPI 契约基本结构
 scripts/check-database-schema.sh        检查数据库 Schema 契约和 7 要素
 scripts/check-dependency-whitelist.sh   检查依赖文件是否引入白名单外依赖
-scripts/check-ai-guard.sh               一次性运行全部门禁检查
+scripts/check-ai-guard.sh               检查单个目标项目
+scripts/run-ai-guard-all.sh             自动扫描并检查所有目标项目
+scripts/install-ai-guard-hook.sh        安装本地 pre-commit 门禁
 ```
 
-## 3. 使用方式
+## 3. 检查单个目标项目
 
 在仓库根目录执行：
 
@@ -42,7 +44,60 @@ bash scripts/check-ai-guard.sh 案例/03_钓鱼爱好者移动端平台案例
 bash scripts/check-ai-guard.sh .
 ```
 
-## 4. 目标项目必须包含
+## 4. 检查所有目标项目
+
+自动扫描所有包含 `AI_CONTEXT_PACK` 的目标项目：
+
+```bash
+bash scripts/run-ai-guard-all.sh
+```
+
+也可以指定多个目标项目：
+
+```bash
+bash scripts/run-ai-guard-all.sh 目标项目A 目标项目B
+```
+
+如果仓库中还没有目标项目，脚本会警告并通过，不阻塞样板和模板仓库自身维护。
+
+## 5. 安装本地 pre-commit 门禁
+
+执行：
+
+```bash
+bash scripts/install-ai-guard-hook.sh
+```
+
+安装后，每次 `git commit` 前会自动执行：
+
+```bash
+bash scripts/run-ai-guard-all.sh
+```
+
+如果门禁失败，commit 会被阻止。
+
+## 6. CI 门禁
+
+仓库已提供 GitHub Actions 工作流：
+
+```text
+.github/workflows/ai-guard.yml
+```
+
+触发条件：
+
+```text
+pull_request
+push 到 main
+```
+
+CI 会执行：
+
+```bash
+bash scripts/run-ai-guard-all.sh
+```
+
+## 7. 目标项目必须包含
 
 目标项目必须先具备：
 
@@ -61,7 +116,7 @@ AI_CONTEXT_PACK/05_当前任务包.md
 样板/控制系统/AI_CONTEXT_PACK/
 ```
 
-## 5. 目标项目建议包含
+## 8. 目标项目建议包含
 
 进入契约确认或工程执行阶段后，目标项目应包含：
 
@@ -77,7 +132,7 @@ contracts/dependency-whitelist.txt
 样板/控制系统/contracts/
 ```
 
-## 6. 当前能拦截什么
+## 9. 当前能拦截什么
 
 当前能拦截：
 
@@ -96,7 +151,7 @@ AI 修改 Dockerfile 或 GitHub Actions workflow
 依赖文件引入白名单外依赖
 ```
 
-## 7. 当前只警告什么
+## 10. 当前只警告什么
 
 当前对数据库 migration 先做警告：
 
@@ -110,7 +165,7 @@ AI 修改 Dockerfile 或 GitHub Actions workflow
 
 接口相关代码变更但 OpenAPI 未变更、migration 变更但 database-schema 未变更，也会先警告。
 
-## 8. 当前不能替代什么
+## 11. 当前不能替代什么
 
 当前脚本不能替代：
 
@@ -125,7 +180,7 @@ AI 修改 Dockerfile 或 GitHub Actions workflow
 专业 SCA 依赖漏洞扫描
 ```
 
-## 9. 一句话原则
+## 12. 一句话原则
 
 ```text
 AI 可以写，但必须先有上下文；AI 可以改，但不能越阶段；AI 可以交付，但必须过门禁；AI 可以引入契约变更，但必须同步结构化契约。
