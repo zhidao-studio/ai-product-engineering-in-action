@@ -1,0 +1,47 @@
+product:
+  name: ""
+  description: ""
+  current_stage: idea
+  owner_role: non_technical_product_owner
+
+apps:
+  # 只填写当前版本需要的端
+  # 可选：web_admin / h5 / weapp / ios / backend
+  - type: h5
+    enabled: false
+  - type: weapp
+    enabled: false
+  - type: ios
+    enabled: false
+  - type: web_admin
+    enabled: false
+  - type: backend
+    enabled: false
+
+users:
+  roles: []
+
+entities: []
+
+pages: []
+
+workflows: []
+
+permissions: []
+
+confirmed:
+  product_definition: false
+  ui_spec: false
+  prototype: false
+  engineering_spec: false
+  api_contract: false
+  database_schema: false
+  task_package: false
+
+constraints:
+  multi_end_rule: "多个工程，独立建设；接口一致，代码不共享"
+  backend_rule: "Spring Boot 单体应用，不使用 Spring Cloud"
+  database_rule: "主键 32 位字符串，每表 7 要素，时间 trigger 维护"
+  code_value_rule: "数据库码值是源头，后端常量一致，接口契约记录，前端只翻译不改码"
+
+next_decisions: []
