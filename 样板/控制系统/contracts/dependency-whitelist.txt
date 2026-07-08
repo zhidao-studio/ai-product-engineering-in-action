@@ -1,0 +1,32 @@
+# 依赖白名单样板
+#
+# 说明：
+# - 每行一个允许出现的依赖关键字。
+# - 该文件用于最小门禁脚本做文本级扫描，不替代专业 SCA 安全扫描。
+# - 真实项目应复制到 目标项目/contracts/dependency-whitelist.txt 后按项目裁剪。
+
+# Java / Maven
+spring-boot-starter-web
+spring-boot-starter-validation
+spring-boot-starter-test
+mybatis-plus-boot-starter
+flyway-core
+mysql-connector-j
+
+# Node / Web
+vue
+vite
+typescript
+pinia
+vue-router
+element-plus
+vant
+axios
+
+# 微信小程序
+@vant/weapp
+miniprogram-api-typings
+
+# iOS / Swift
+swift
+swiftui
