@@ -2,21 +2,24 @@
 
 ## 1. 目的
 
-本目录提供最小可执行门禁，用于把文档约束和 AI Context Pack 转成可执行检查。
+本目录提供可执行门禁，用于把文档约束、AI Context Pack 和结构化契约转成检查脚本。
 
 它解决的问题是：
 
 ```text
-AI 修改文件后，系统能检查它是否越级、是否缺少上下文、是否修改保护路径。
+AI 修改文件后，系统能检查它是否越级、是否缺少上下文、是否修改保护路径、是否缺少关键契约。
 ```
 
 ## 2. 脚本清单
 
 ```text
-scripts/check-ai-context-pack.sh   检查目标项目是否具备 AI Context Pack
-scripts/check-ai-stage.sh          检查当前阶段是否出现越级产物
-scripts/check-ai-boundary.sh       检查 Git diff 是否修改保护路径
-scripts/check-ai-guard.sh          一次性运行全部门禁检查
+scripts/check-ai-context-pack.sh        检查目标项目是否具备 AI Context Pack
+scripts/check-ai-stage.sh               检查当前阶段是否出现越级产物
+scripts/check-ai-boundary.sh            检查 Git diff 是否修改保护路径
+scripts/check-openapi-contract.sh       检查 OpenAPI 契约基本结构
+scripts/check-database-schema.sh        检查数据库 Schema 契约和 7 要素
+scripts/check-dependency-whitelist.sh   检查依赖文件是否引入白名单外依赖
+scripts/check-ai-guard.sh               一次性运行全部门禁检查
 ```
 
 ## 3. 使用方式
@@ -58,7 +61,23 @@ AI_CONTEXT_PACK/05_当前任务包.md
 样板/控制系统/AI_CONTEXT_PACK/
 ```
 
-## 5. 当前能拦截什么
+## 5. 目标项目建议包含
+
+进入契约确认或工程执行阶段后，目标项目应包含：
+
+```text
+contracts/openapi.yaml
+contracts/database-schema.yaml
+contracts/dependency-whitelist.txt
+```
+
+可从这里复制样板：
+
+```text
+样板/控制系统/contracts/
+```
+
+## 6. 当前能拦截什么
 
 当前能拦截：
 
@@ -70,9 +89,14 @@ AI 修改工程基线
 AI 修改 pom.xml、package.json、Package.swift
 AI 修改 application.yml / application.properties
 AI 修改 Dockerfile 或 GitHub Actions workflow
+契约/编码阶段缺少 OpenAPI 契约
+契约/编码阶段缺少数据库 Schema 契约
+数据库 Schema 缺少 32 位字符串主键和 7 要素声明
+依赖文件变更但缺少依赖白名单
+依赖文件引入白名单外依赖
 ```
 
-## 6. 当前只警告什么
+## 7. 当前只警告什么
 
 当前对数据库 migration 先做警告：
 
@@ -84,22 +108,25 @@ AI 修改 Dockerfile 或 GitHub Actions workflow
 
 如果希望强制阻断，可以在 `scripts/check-ai-boundary.sh` 中把 migration 的 WARN 改成 FAIL。
 
-## 7. 当前不能替代什么
+接口相关代码变更但 OpenAPI 未变更、migration 变更但 database-schema 未变更，也会先警告。
+
+## 8. 当前不能替代什么
 
 当前脚本不能替代：
 
 ```text
-OpenAPI 契约校验
-数据库 schema 深度校验
+完整 OpenAPI diff 兼容性校验
+完整数据库 DDL 解析
 单元测试
 端到端测试
 安全扫描
 代码质量扫描
 真实构建验证
+专业 SCA 依赖漏洞扫描
 ```
 
-## 8. 一句话原则
+## 9. 一句话原则
 
 ```text
-AI 可以写，但必须先有上下文；AI 可以改，但不能越阶段；AI 可以交付，但必须过门禁。
+AI 可以写，但必须先有上下文；AI 可以改，但不能越阶段；AI 可以交付，但必须过门禁；AI 可以引入契约变更，但必须同步结构化契约。
 ```
