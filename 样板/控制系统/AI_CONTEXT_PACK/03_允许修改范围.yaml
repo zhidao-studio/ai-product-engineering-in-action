@@ -1,0 +1,86 @@
+policy_name: ai_write_policy
+version: 0.1
+
+current_stage: idea
+
+rules:
+  - name: stage_first
+    description: "AI 必须先读取 00_当前阶段.md，再判断是否允许修改文件。"
+    required: true
+
+  - name: no_file_write_in_idea_stage
+    description: "idea 阶段默认不得创建完整案例目录或工程代码。"
+    applies_when:
+      current_stage: idea
+    allowed_outputs:
+      - question_list
+      - option_list
+      - recommendation
+      - product_definition_draft
+    forbidden_outputs:
+      - full_case_directory
+      - engineering_spec
+      - api_contract
+      - database_schema
+      - task_package
+      - source_code
+
+allowed_paths:
+  # 只有进入对应阶段后才可启用
+  product_definition:
+    - "目标项目/docs/01_产品定义.md"
+  ui_spec:
+    - "目标项目/docs/02_界面规格.md"
+  prototype:
+    - "目标项目/prototypes/**"
+    - "目标项目/docs/02_5_原型预览确认记录.md"
+  engineering_spec:
+    - "目标项目/docs/03_工程规格.md"
+  contract:
+    - "目标项目/docs/04_接口契约.md"
+    - "目标项目/docs/05_数据库结构.md"
+  task_package:
+    - "目标项目/docs/06_代码任务包.md"
+  code:
+    - "目标项目/web-admin/src/**"
+    - "目标项目/h5/src/**"
+    - "目标项目/weapp/miniprogram/**"
+    - "目标项目/ios/Sources/**"
+    - "目标项目/backend/src/main/java/**"
+    - "目标项目/backend/src/test/java/**"
+
+protected_paths:
+  - "工程模板/**"
+  - "文档/工程基线/**"
+  - "目标项目/backend/pom.xml"
+  - "目标项目/backend/src/main/resources/application.yml"
+  - "目标项目/backend/src/main/resources/application.properties"
+  - "目标项目/web-admin/package.json"
+  - "目标项目/h5/package.json"
+  - "目标项目/weapp/package.json"
+  - "目标项目/ios/Package.swift"
+
+requires_approval:
+  - "**/pom.xml"
+  - "**/package.json"
+  - "**/Package.swift"
+  - "**/db/migration/**"
+  - "**/application.yml"
+  - "**/application.properties"
+  - "**/Dockerfile"
+  - "**/.github/workflows/**"
+
+forbidden_actions:
+  - "从 0 重建工程"
+  - "删除工程模板基础结构"
+  - "越级生成后续阶段文件"
+  - "未确认接口契约前写后端接口"
+  - "未确认数据库结构前写 migration"
+  - "未获批准新增依赖"
+
+reporting_required:
+  - modified_files
+  - reason
+  - validation_result
+  - skipped_checks
+  - risks
