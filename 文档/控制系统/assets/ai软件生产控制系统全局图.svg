@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080">
+  <defs>
+    <style>
+      .title{font:700 42px -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;fill:#0f172a}
+      .subtitle{font:500 22px -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;fill:#334155}
+      .layer-title{font:700 22px -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;fill:#fff}
+      .box-title{font:700 17px -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;fill:#0f172a}
+      .box-text{font:500 15px -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;fill:#1e293b}
+      .small{font:500 14px -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;fill:#334155}
+      .note{font:600 16px -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;fill:#1e3a8a}
+      .panel-title{font:700 26px -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;fill:#0f172a}
+      .score{font:700 18px -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;fill:#1d4ed8}
+      .blue{fill:#0b4aa2}
+      .darkblue{fill:#0a336f}
+      .light{fill:#f8fbff}
+      .line{stroke:#1d4ed8;stroke-width:2;fill:none}
+      .thin{stroke:#3b82f6;stroke-width:1.5;fill:#fff}
+      .dash{stroke:#94a3b8;stroke-width:2;stroke-dasharray:8 6;fill:#fff}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1d4ed8"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="1080" fill="#ffffff"/>
+  <text x="720" y="55" text-anchor="middle" class="title">AI 软件生产控制系统（全局图）</text>
+  <text x="720" y="92" text-anchor="middle" class="subtitle">让普通人能够安全、可控、持续地使用 AI 构建和演化生产级软件</text>
+
+  <!-- main layers -->
+  <g transform="translate(45,120)">
+    <!-- layer 1 -->
+    <rect x="0" y="0" width="1110" height="135" rx="8" class="light" stroke="#1d4ed8" stroke-width="1.5"/>
+    <rect x="0" y="0" width="230" height="40" rx="6" class="blue"/>
+    <text x="18" y="27" class="layer-title">1. 意图层（Intent）</text>
+    <g transform="translate(35,50)">
+      <rect x="0" y="0" width="190" height="55" rx="6" class="thin"/><text x="95" y="34" text-anchor="middle" class="box-title">💡 产品想法</text>
+      <rect x="215" y="0" width="190" height="55" rx="6" class="thin"/><text x="310" y="34" text-anchor="middle" class="box-title">👥 目标用户</text>
+      <rect x="430" y="0" width="190" height="55" rx="6" class="thin"/><text x="525" y="34" text-anchor="middle" class="box-title">📦 MVP 范围</text>
+      <rect x="645" y="0" width="190" height="55" rx="6" class="thin"/><text x="740" y="34" text-anchor="middle" class="box-title">📋 不做清单</text>
+      <rect x="860" y="0" width="190" height="55" rx="6" class="thin"/><text x="955" y="34" text-anchor="middle" class="box-title">🎯 成功标准</text>
+    </g>
+    <text x="555" y="122" text-anchor="middle" class="note">人负责产品意图与关键决策</text>
+
+    <path d="M555 135 L555 160" class="line" marker-end="url(#arrow)"/>
+
+    <!-- layer 2 -->
+    <g transform="translate(0,165)">
+      <rect x="0" y="0" width="1110" height="165" rx="8" class="light" stroke="#1d4ed8" stroke-width="1.5"/>
+      <rect x="0" y="0" width="260" height="40" rx="6" class="blue"/>
+      <text x="18" y="27" class="layer-title">2. 约束层（Constraints）</text>
+      <g transform="translate(10,55)">
+        <rect x="0" y="0" width="120" height="70" rx="6" class="thin"/><text x="60" y="42" text-anchor="middle" class="box-title">产品定义</text>
+        <rect x="135" y="0" width="120" height="70" rx="6" class="thin"/><text x="195" y="42" text-anchor="middle" class="box-title">界面规格</text>
+        <rect x="270" y="0" width="120" height="70" rx="6" class="thin"/><text x="330" y="42" text-anchor="middle" class="box-title">高保真原型</text>
+        <rect x="405" y="0" width="120" height="70" rx="6" class="thin"/><text x="465" y="42" text-anchor="middle" class="box-title">工程规格</text>
+        <rect x="540" y="0" width="120" height="70" rx="6" class="thin"/><text x="600" y="31" text-anchor="middle" class="box-title">接口契约</text><text x="600" y="52" text-anchor="middle" class="small">OpenAPI</text>
+        <rect x="675" y="0" width="120" height="70" rx="6" class="thin"/><text x="735" y="31" text-anchor="middle" class="box-title">数据库契约</text><text x="735" y="52" text-anchor="middle" class="small">Schema</text>
+        <rect x="810" y="0" width="120" height="70" rx="6" class="thin"/><text x="870" y="42" text-anchor="middle" class="box-title">代码任务包</text>
+        <rect x="945" y="0" width="145" height="70" rx="6" class="thin"/><text x="1017" y="28" text-anchor="middle" class="box-title">工程基线</text><text x="1017" y="50" text-anchor="middle" class="small">命名 / 码值</text>
+      </g>
+      <text x="555" y="150" text-anchor="middle" class="note">约束的作用：减少 AI 的自由度</text>
+    </g>
+
+    <path d="M555 330 L555 355" class="line" marker-end="url(#arrow)"/>
+
+    <!-- layer 3 -->
+    <g transform="translate(0,360)">
+      <rect x="0" y="0" width="1110" height="170" rx="8" class="light" stroke="#1d4ed8" stroke-width="1.5"/>
+      <rect x="0" y="0" width="245" height="40" rx="6" class="blue"/>
+      <text x="18" y="27" class="layer-title">3. 执行层（Execution）</text>
+      <g transform="translate(70,50)">
+        <rect x="0" y="0" width="240" height="35" rx="6" class="thin"/><text x="120" y="24" text-anchor="middle" class="box-title">Stage（阶段状态机）</text>
+        <rect x="0" y="45" width="240" height="35" rx="6" class="thin"/><text x="120" y="69" text-anchor="middle" class="box-title">AI Context Pack</text>
+        <rect x="0" y="90" width="240" height="35" rx="6" class="thin"/><text x="120" y="114" text-anchor="middle" class="box-title">Contracts（契约）</text>
+      </g>
+      <rect x="375" y="50" width="340" height="115" rx="10" class="darkblue"/>
+      <text x="545" y="98" text-anchor="middle" fill="#fff" font-size="28" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial">AI Runtime /</text>
+      <text x="545" y="134" text-anchor="middle" fill="#fff" font-size="28" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial">AI 执行代理</text>
+      <g transform="translate(780,50)">
+        <rect x="0" y="0" width="260" height="55" rx="6" class="thin"/><text x="130" y="34" text-anchor="middle" class="box-title">Task Package（任务包）</text>
+        <rect x="0" y="70" width="260" height="55" rx="6" class="thin"/><text x="130" y="28" text-anchor="middle" class="box-title">工程模板</text><text x="130" y="48" text-anchor="middle" class="small">Web / H5 / 小程序 / iOS / 后端</text>
+      </g>
+      <path d="M310 68 L375 85" class="line" marker-end="url(#arrow)"/>
+      <path d="M310 113 L375 113" class="line" marker-end="url(#arrow)"/>
+      <path d="M310 158 L375 138" class="line" marker-end="url(#arrow)"/>
+      <path d="M780 78 L715 92" class="line" marker-end="url(#arrow)"/>
+      <path d="M780 148 L715 132" class="line" marker-end="url(#arrow)"/>
+      <text x="555" y="160" text-anchor="middle" class="note">AI 只能在当前阶段、按当前任务包、在允许目录内执行</text>
+    </g>
+
+    <path d="M555 530 L555 555" class="line" marker-end="url(#arrow)"/>
+
+    <!-- layer 4 -->
+    <g transform="translate(0,560)">
+      <rect x="0" y="0" width="1110" height="140" rx="8" class="light" stroke="#1d4ed8" stroke-width="1.5"/>
+      <rect x="0" y="0" width="260" height="40" rx="6" class="blue"/>
+      <text x="18" y="27" class="layer-title">4. 验证层（Verification）</text>
+      <g transform="translate(15,55)">
+        <rect x="0" y="0" width="120" height="50" rx="6" class="thin"/><text x="60" y="21" text-anchor="middle" class="small">Context Pack</text><text x="60" y="39" text-anchor="middle" class="small">检查</text>
+        <rect x="135" y="0" width="120" height="50" rx="6" class="thin"/><text x="195" y="21" text-anchor="middle" class="small">Stage 越级</text><text x="195" y="39" text-anchor="middle" class="small">检查</text>
+        <rect x="270" y="0" width="120" height="50" rx="6" class="thin"/><text x="330" y="21" text-anchor="middle" class="small">Boundary</text><text x="330" y="39" text-anchor="middle" class="small">边界检查</text>
+        <rect x="405" y="0" width="120" height="50" rx="6" class="thin"/><text x="465" y="21" text-anchor="middle" class="small">OpenAPI</text><text x="465" y="39" text-anchor="middle" class="small">契约检查</text>
+        <rect x="540" y="0" width="120" height="50" rx="6" class="thin"/><text x="600" y="21" text-anchor="middle" class="small">Database</text><text x="600" y="39" text-anchor="middle" class="small">Schema 检查</text>
+        <rect x="675" y="0" width="120" height="50" rx="6" class="thin"/><text x="735" y="21" text-anchor="middle" class="small">Dependency</text><text x="735" y="39" text-anchor="middle" class="small">Whitelist</text>
+        <rect x="820" y="0" width="120" height="50" rx="6" class="dash"/><text x="880" y="21" text-anchor="middle" class="small">Build / Lint</text><text x="880" y="39" text-anchor="middle" class="small">后续增强</text>
+        <rect x="955" y="0" width="120" height="50" rx="6" class="dash"/><text x="1015" y="21" text-anchor="middle" class="small">Test / Security</text><text x="1015" y="39" text-anchor="middle" class="small">后续增强</text>
+      </g>
+      <text x="555" y="125" text-anchor="middle" class="note">目标：把错误拦在更便宜的环节</text>
+    </g>
+
+    <path d="M555 700 L555 725" class="line" marker-end="url(#arrow)"/>
+
+    <!-- layer 5 -->
+    <g transform="translate(0,730)">
+      <rect x="0" y="0" width="1110" height="130" rx="8" class="light" stroke="#1d4ed8" stroke-width="1.5"/>
+      <rect x="0" y="0" width="260" height="40" rx="6" class="blue"/>
+      <text x="18" y="27" class="layer-title">5. 治理层（Governance）</text>
+      <g transform="translate(15,55)">
+        <rect x="0" y="0" width="135" height="40" rx="6" class="thin"/><text x="67" y="26" text-anchor="middle" class="small">AI 模型选择</text>
+        <rect x="150" y="0" width="135" height="40" rx="6" class="thin"/><text x="217" y="26" text-anchor="middle" class="small">Token / 成本</text>
+        <rect x="300" y="0" width="135" height="40" rx="6" class="thin"/><text x="367" y="26" text-anchor="middle" class="small">成功率 / 回滚率</text>
+        <rect x="450" y="0" width="135" height="40" rx="6" class="thin"/><text x="517" y="26" text-anchor="middle" class="small">风险监控</text>
+        <rect x="600" y="0" width="135" height="40" rx="6" class="thin"/><text x="667" y="26" text-anchor="middle" class="small">人工审批点</text>
+        <rect x="750" y="0" width="150" height="40" rx="6" class="thin"/><text x="825" y="26" text-anchor="middle" class="small">版本与基线治理</text>
+        <rect x="915" y="0" width="135" height="40" rx="6" class="thin"/><text x="982" y="26" text-anchor="middle" class="small">回滚与演化</text>
+      </g>
+      <text x="555" y="115" text-anchor="middle" class="note">真正的产品不是 AI，而是治理系统</text>
+    </g>
+
+    <path d="M555 860 L555 885" class="line" marker-end="url(#arrow)"/>
+    <rect x="0" y="890" width="1110" height="60" rx="8" class="darkblue"/>
+    <text x="555" y="928" text-anchor="middle" fill="#fff" font-size="26" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial">交付结果：可验收、可维护、可持续演化的软件产品</text>
+  </g>
+
+  <!-- right panels -->
+  <g transform="translate(1180,120)">
+    <rect x="0" y="0" width="225" height="520" rx="8" fill="#fff" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="112" y="45" text-anchor="middle" class="panel-title">当前成熟度</text>
+    <line x1="20" y1="72" x2="205" y2="72" stroke="#cbd5e1"/>
+    <text x="28" y="110" class="box-text">方法论：</text><text x="185" y="110" text-anchor="end" class="score">95 分</text>
+    <text x="28" y="165" class="box-text">工程模板：</text><text x="185" y="165" text-anchor="end" class="score">90 分</text>
+    <text x="28" y="220" class="box-text">文档体系：</text><text x="185" y="220" text-anchor="end" class="score">92 分</text>
+    <text x="28" y="275" class="box-text">AI 控制能力：</text><text x="185" y="275" text-anchor="end" class="score">70 分</text>
+    <text x="28" y="330" class="box-text">自动验证能力：</text><text x="185" y="330" text-anchor="end" class="score">40 分</text>
+    <text x="28" y="385" class="box-text">治理能力：</text><text x="185" y="385" text-anchor="end" class="score">10 分</text>
+    <line x1="20" y1="415" x2="205" y2="415" stroke="#94a3b8" stroke-dasharray="6 5"/>
+    <text x="25" y="450" class="note">当前阶段：已完成 0→1</text>
+    <text x="25" y="477" class="note">下一步：Runtime</text>
+    <text x="25" y="502" class="note">Verification / Governance</text>
+  </g>
+
+  <g transform="translate(1180,680)">
+    <rect x="0" y="0" width="225" height="245" rx="8" fill="#fff" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="112" y="40" text-anchor="middle" class="panel-title">核心原则</text>
+    <line x1="20" y1="62" x2="205" y2="62" stroke="#cbd5e1"/>
+    <text x="25" y="95" class="box-text">人负责意图与决策</text>
+    <text x="25" y="135" class="box-text">AI 负责受控执行</text>
+    <text x="25" y="175" class="box-text">系统负责阶段、边界、</text>
+    <text x="25" y="198" class="box-text">契约、反馈</text>
+    <text x="25" y="232" class="box-text">门禁才是执行器</text>
+  </g>
+</svg>
