@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <style>
+      .title{font:700 40px -apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif;fill:#0f172a}
+      .sub{font:500 20px -apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif;fill:#334155}
+      .h{font:700 22px -apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif;fill:#fff}
+      .t{font:600 18px -apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif;fill:#0f172a}
+      .s{font:500 15px -apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif;fill:#334155}
+      .box{fill:#fff;stroke:#3b82f6;stroke-width:1.4;rx:8}
+      .panel{fill:#f8fbff;stroke:#1d4ed8;stroke-width:1.6;rx:10}
+      .blue{fill:#0b4aa2}.deep{fill:#0a336f}.line{stroke:#1d4ed8;stroke-width:2;fill:none}
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1d4ed8"/></marker>
+  </defs>
+  <rect width="1440" height="900" fill="#fff"/>
+  <text x="720" y="56" text-anchor="middle" class="title">AI 软件生产控制系统（角色版总览）</text>
+  <text x="720" y="92" text-anchor="middle" class="sub">区分使用者视角、开发者视角、执行 AI 与门禁 / CI，并标出 AI 可替代范围</text>
+
+  <g transform="translate(40,150)">
+    <rect width="255" height="155" class="panel"/><rect width="255" height="44" class="blue" rx="8"/>
+    <text x="20" y="30" class="h">入口 A：使用者</text>
+    <text x="22" y="78" class="t">产品负责人 / 决策者</text>
+    <text x="22" y="110" class="s">提出目标、确认原型</text><text x="22" y="136" class="s">验收、上线、回滚</text>
+    <rect y="190" width="255" height="170" class="panel"/><rect y="190" width="255" height="44" class="deep" rx="8"/>
+    <text x="20" y="220" class="h">入口 B：开发者</text>
+    <text x="22" y="268" class="t">控制系统维护者</text>
+    <text x="22" y="300" class="s">维护模板、基线、门禁</text><text x="22" y="326" class="s">验证构建、测试、CI</text>
+  </g>
+
+  <g transform="translate(350,130)">
+    <rect width="735" height="105" class="panel"/><rect width="190" height="40" class="blue" rx="8"/><text x="18" y="27" class="h">1. 意图层</text>
+    <text x="370" y="66" text-anchor="middle" class="t">产品想法 / 目标用户 / MVP 范围 / 不做清单 / 成功标准</text>
+    <path d="M370 105L370 135" class="line" marker-end="url(#a)"/>
+
+    <g transform="translate(0,140)"><rect width="735" height="105" class="panel"/><rect width="190" height="40" class="blue" rx="8"/><text x="18" y="27" class="h">2. 约束层</text><text x="370" y="66" text-anchor="middle" class="t">产品定义 / 界面规格 / 原型 / 工程规格 / OpenAPI / Schema / 任务包</text></g>
+    <path d="M370 245L370 275" class="line" marker-end="url(#a)"/>
+
+    <g transform="translate(0,280)"><rect width="735" height="190" class="panel"/><rect width="190" height="40" class="blue" rx="8"/><text x="18" y="27" class="h">3. 执行层</text>
+      <rect x="250" y="55" width="235" height="75" fill="#0a336f" rx="10"/><text x="367" y="88" text-anchor="middle" fill="#fff" font-size="24" font-weight="700">AI Runtime</text><text x="367" y="117" text-anchor="middle" fill="#fff" font-size="20" font-weight="600">协调与执行</text>
+      <rect x="30" y="55" width="160" height="40" class="box"/><text x="110" y="81" text-anchor="middle" class="t">规划 AI</text>
+      <rect x="30" y="110" width="160" height="40" class="box"/><text x="110" y="136" text-anchor="middle" class="t">原型 AI</text>
+      <rect x="545" y="55" width="160" height="40" class="box"/><text x="625" y="81" text-anchor="middle" class="t">工程 AI</text>
+      <rect x="545" y="110" width="160" height="40" class="box"/><text x="625" y="136" text-anchor="middle" class="t">验证 AI</text>
+      <text x="367" y="172" text-anchor="middle" class="s">开发者模式下：中高可替代的工程执行、验证、脚本增强，都可规划 AI 执行</text>
+    </g>
+    <path d="M370 470L370 500" class="line" marker-end="url(#a)"/>
+
+    <g transform="translate(0,505)"><rect width="735" height="105" class="panel"/><rect width="190" height="40" class="blue" rx="8"/><text x="18" y="27" class="h">4. 验证层</text><text x="370" y="66" text-anchor="middle" class="t">阶段 / 边界 / 契约 / 依赖 / 构建 / 测试 / 安全</text></g>
+    <path d="M370 610L370 640" class="line" marker-end="url(#a)"/>
+
+    <g transform="translate(0,645)"><rect width="735" height="90" class="panel"/><rect width="190" height="40" class="blue" rx="8"/><text x="18" y="27" class="h">5. 治理层</text><text x="370" y="62" text-anchor="middle" class="t">模型 / 成本 / 成功率 / 风险 / 审批 / 版本 / 回滚</text></g>
+  </g>
+
+  <g transform="translate(1120,150)">
+    <rect width="280" height="590" class="panel"/><text x="140" y="42" text-anchor="middle" class="t" font-size="24">AI 可替代性</text>
+    <rect x="25" y="75" width="230" height="135" class="box"/><text x="42" y="105" class="t">高可替代</text><text x="42" y="136" class="s">读取、生成、编码</text><text x="42" y="162" class="s">构建、测试、门禁</text><text x="42" y="188" class="s">失败分析、人话报告</text>
+    <rect x="25" y="235" width="230" height="145" class="box"/><text x="42" y="265" class="t">中高可替代</text><text x="42" y="296" class="s">MVP 收敛、任务拆分</text><text x="42" y="322" class="s">模板修复、脚本增强</text><text x="42" y="348" class="s">CI 修复、风险说明</text>
+    <rect x="25" y="405" width="230" height="145" class="box"/><text x="42" y="435" class="t">必须人决策</text><text x="42" y="466" class="s">做不做、选谁做用户</text><text x="42" y="492" class="s">原型是否接受</text><text x="42" y="518" class="s">验收、上线、回滚</text>
+    <text x="140" y="575" text-anchor="middle" class="t">AI 替代执行，不替代责任</text>
+  </g>
+</svg>
