@@ -28,7 +28,7 @@ Spring Validation
 MyBatis-Plus
 Flyway
 MySQL
-H2（测试）
+H2（默认本地运行和测试）
 JUnit 5
 ```
 
@@ -136,14 +136,43 @@ Controller 只处理协议层逻辑，不写业务规则。
 
 业务 CRUD 样板用于指导后续业务模块按同样结构扩展。
 
-## 9. 命令
+## 9. 默认配置
+
+模板已提供：
+
+```text
+src/main/resources/application.yml
+```
+
+默认使用 H2 内存库，方便复制后直接本地启动和测试。
+
+如果接入 MySQL，通过环境变量覆盖：
+
+```text
+DB_URL
+DB_USERNAME
+DB_PASSWORD
+DB_DRIVER
+```
+
+## 10. 命令
+
+当前模板没有提交 Maven Wrapper，因此默认使用本机 Maven：
+
+```bash
+mvn test
+mvn package
+mvn spring-boot:run
+```
+
+如果后续补充 Maven Wrapper，才使用：
 
 ```bash
 ./mvnw test
 ./mvnw spring-boot:run
 ```
 
-## 10. AI 修改边界
+## 11. AI 修改边界
 
 AI 可以新增业务 Controller、Service、Mapper、Entity、BO、VO、Flyway migration 和测试。
 
