@@ -1,0 +1,27 @@
+project:
+  name: full_stack_reference_case
+  version: v0.1
+  type: reference_case
+
+goal:
+  summary: 用于验证目标项目具备最小 AI Context Pack 和契约门禁对象。
+
+scope:
+  included:
+    - context_pack
+    - openapi_contract
+    - database_schema_contract
+    - dependency_whitelist
+  excluded:
+    - production_deployment
+    - complete_business_system
+
+modules:
+  - status_check
+  - task_list
+  - task_create
+
+quality_goal:
+  - discoverable_by_run_ai_guard_all
+  - checkable_by_check_ai_guard
+  - not_claimed_as_production_ready
