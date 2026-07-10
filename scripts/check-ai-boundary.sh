@@ -74,8 +74,11 @@ while IFS= read -r file; do
     */package.json|package.json)
       fail_file "$file" "依赖文件需要审批，AI 不得擅自修改 package.json。"
       ;;
+    */Podfile|Podfile|*/Podfile.lock|Podfile.lock)
+      fail_file "$file" "iOS 依赖文件需要审批，AI 不得擅自修改 CocoaPods 的 Podfile / Podfile.lock。"
+      ;;
     */Package.swift|Package.swift)
-      fail_file "$file" "依赖文件需要审批，AI 不得擅自修改 Package.swift。"
+      fail_file "$file" "本仓库 iOS 基线使用 CocoaPods，业务任务不得擅自新增或修改 Package.swift。"
       ;;
     */application.yml|application.yml|*/application.properties|application.properties)
       fail_file "$file" "应用配置可能包含环境和安全边界，AI 不得擅自修改。"
