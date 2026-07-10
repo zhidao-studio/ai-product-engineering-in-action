@@ -22,7 +22,7 @@ git diff --name-only HEAD -- "$TARGET_DIR" > "$changed_files" || true
 git ls-files --others --exclude-standard -- "$TARGET_DIR" >> "$changed_files" || true
 sort -u "$changed_files" -o "$changed_files"
 
-if ! grep -Eq "(^|/)pom\.xml$|(^|/)package\.json$|(^|/)Package\.swift$" "$changed_files"; then
+if ! grep -Eq "(^|/)pom\.xml$|(^|/)package\.json$|(^|/)Podfile$|(^|/)Podfile\.lock$|(^|/)Package\.swift$" "$changed_files"; then
   echo "[OK] 未检测到依赖文件变更，跳过依赖白名单检查。"
   exit 0
 fi
@@ -41,7 +41,7 @@ check_dependency_file() {
 
   # 该脚本是最小文本级检查：
   # - 对新增行中可能出现的依赖关键字做白名单匹配。
-  # - 不替代 npm audit、mvn dependency-check、SCA 等专业安全扫描。
+  # - 不替代 npm audit、mvn dependency-check、pod audit、SCA 等专业安全扫描。
   local added_lines
   added_lines=$(git diff HEAD -- "$file" | grep '^+' | grep -v '^+++' || true)
 
@@ -61,7 +61,10 @@ check_dependency_file() {
     # package.json: "name": "version"
     elif echo "$clean_line" | grep -Eq "^[[:space:]]*[A-Za-z0-9_@./-]+[[:space:]]*:[[:space:]]*"; then
       dep=$(echo "$clean_line" | sed -E 's/^[[:space:]]*([A-Za-z0-9_@./-]+)[[:space:]]*:.*/\1/')
-    # Swift Package url
+    # CocoaPods Podfile: pod 'Name'
+    elif echo "$clean_line" | grep -Eq "^[[:space:]]*pod[[:space:]]+[A-Za-z0-9_./-]+"; then
+      dep=$(echo "$clean_line" | sed -E 's/^[[:space:]]*pod[[:space:]]+([A-Za-z0-9_./-]+).*/\1/')
+    # Swift Package url: 仅用于识别违规或遗留 SPM 依赖
     elif echo "$clean_line" | grep -Eq "package\(url:"; then
       dep=$(echo "$clean_line" | sed -E 's/.*package\(url:[[:space:]]*([^,]+).*/\1/' | sed -E 's#.*/([^/]+)\.git.*#\1#')
     else
@@ -83,7 +86,7 @@ check_dependency_file() {
 while IFS= read -r file; do
   [[ -z "$file" ]] && continue
   case "$file" in
-    */pom.xml|pom.xml|*/package.json|package.json|*/Package.swift|Package.swift)
+    */pom.xml|pom.xml|*/package.json|package.json|*/Podfile|Podfile|*/Podfile.lock|Podfile.lock|*/Package.swift|Package.swift)
       check_dependency_file "$file"
       ;;
   esac
