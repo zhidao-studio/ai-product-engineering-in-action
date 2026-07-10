@@ -198,7 +198,7 @@ scripts/README.md
 Web 后台：Vue 3 + Vite + TypeScript + Vue Router + Pinia + Element Plus
 H5：Vue 3 + Vite + TypeScript + Vant
 小程序：原生微信小程序 + TypeScript + Vant Weapp
-iOS：SwiftUI + MVVM
+iOS：SwiftUI + MVVM + CocoaPods
 后端：Java + Spring Boot + MyBatis-Plus + Flyway 单体应用，不使用 Spring Cloud
 数据库：MySQL 优先；主键 32 位字符串；每表 7 要素；时间 trigger 维护
 码值：数据库码值是源头，后端常量一致，接口契约记录，前端只翻译不改码
@@ -217,6 +217,7 @@ iOS：SwiftUI + MVVM
 AI 角色执行协议已补充。
 H5 模板明显缺件已补齐。
 后端模板默认配置已补齐。
+iOS 模板已调整为 CocoaPods 基线。
 最小机器门禁已实现。
 最小深度契约校验已实现。
 Git hook / CI 强制门禁已实现。
