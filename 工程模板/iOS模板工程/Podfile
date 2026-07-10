@@ -1,0 +1,17 @@
+platform :ios, '15.0'
+
+# 说明：
+# 1. target 名称需要与 Xcode 工程中的 App target 保持一致。
+# 2. 默认不引入第三方依赖，业务项目按需在依赖白名单确认后再新增 pod。
+# 3. 执行 pod install 后，请使用 .xcworkspace 打开工程。
+
+target 'AIProductTemplate' do
+  use_frameworks!
+
+  # 示例：如需图片加载库，先确认依赖白名单，再取消注释。
+  # pod 'Kingfisher'
+
+  target 'AIProductTemplateTests' do
+    inherit! :search_paths
+  end
+end
