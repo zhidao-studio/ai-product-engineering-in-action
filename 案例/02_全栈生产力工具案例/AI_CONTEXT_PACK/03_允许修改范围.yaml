@@ -1,0 +1,40 @@
+policy_name: case_02_write_policy
+version: 0.1
+current_stage: delivered
+
+allowed_paths:
+  documentation:
+    - "案例/02_全栈生产力工具案例/docs/**"
+  context_pack:
+    - "案例/02_全栈生产力工具案例/AI_CONTEXT_PACK/**"
+  contracts:
+    - "案例/02_全栈生产力工具案例/contracts/**"
+
+protected_paths:
+  - "README.md"
+  - "AGENTS.md"
+  - "文档/控制系统/**"
+  - "文档/工程基线/**"
+  - "工程模板/**"
+  - "scripts/**"
+  - ".github/workflows/**"
+
+requires_approval:
+  - "**/package.json"
+  - "**/pom.xml"
+  - "**/Podfile"
+  - "**/Podfile.lock"
+  - "**/Package.swift"
+  - "**/db/migration/**"
+
+forbidden_actions:
+  - "新增另一套方法论"
+  - "新增另一套控制系统总览"
+  - "绕过 AI Guard"
+  - "从 CocoaPods 切换到 Swift Package Manager"
+  - "宣称未验证模板生产可用"
+
+reporting_required:
+  - modified_files
+  - validation_result
+  - risks
