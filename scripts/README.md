@@ -141,7 +141,7 @@ contracts/dependency-whitelist.txt
 idea 阶段直接生成工程规格、接口契约、数据库结构、代码任务包或工程代码
 AI 修改工程模板
 AI 修改工程基线
-AI 修改 pom.xml、package.json、Package.swift
+AI 修改 pom.xml、package.json、Podfile、Podfile.lock、Package.swift
 AI 修改 application.yml / application.properties
 AI 修改 Dockerfile 或 GitHub Actions workflow
 契约/编码阶段缺少 OpenAPI 契约
@@ -151,7 +151,32 @@ AI 修改 Dockerfile 或 GitHub Actions workflow
 依赖文件引入白名单外依赖
 ```
 
-## 10. 当前只警告什么
+## 10. iOS 依赖边界
+
+本仓库 iOS 基线使用 CocoaPods。
+
+```text
+Podfile
+Podfile.lock
+```
+
+门禁会把 `Podfile` 和 `Podfile.lock` 视为依赖边界文件。
+
+`Package.swift` 仍会被拦截，因为业务任务不得擅自从 CocoaPods 切换到 Swift Package Manager。
+
+依赖白名单脚本会尝试从 `Podfile` 中识别：
+
+```text
+pod 'Name'
+```
+
+并检查该 Pod 名称是否出现在：
+
+```text
+contracts/dependency-whitelist.txt
+```
+
+## 11. 当前只警告什么
 
 当前对数据库 migration 先做警告：
 
@@ -165,7 +190,7 @@ AI 修改 Dockerfile 或 GitHub Actions workflow
 
 接口相关代码变更但 OpenAPI 未变更、migration 变更但 database-schema 未变更，也会先警告。
 
-## 11. 当前不能替代什么
+## 12. 当前不能替代什么
 
 当前脚本不能替代：
 
@@ -180,7 +205,7 @@ AI 修改 Dockerfile 或 GitHub Actions workflow
 专业 SCA 依赖漏洞扫描
 ```
 
-## 12. 一句话原则
+## 13. 一句话原则
 
 ```text
 AI 可以写，但必须先有上下文；AI 可以改，但不能越阶段；AI 可以交付，但必须过门禁；AI 可以引入契约变更，但必须同步结构化契约。
