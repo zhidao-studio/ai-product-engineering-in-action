@@ -1,0 +1,21 @@
+# Frontend
+vue
+vite
+typescript
+vue-router
+pinia
+element-plus
+vant
+
+# Backend
+spring-boot-starter-web
+spring-boot-starter-validation
+mybatis-plus-spring-boot3-starter
+flyway-core
+flyway-mysql
+mysql-connector-j
+h2
+spring-boot-starter-test
+
+# iOS CocoaPods
+Kingfisher
