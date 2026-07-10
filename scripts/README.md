@@ -35,7 +35,7 @@ bash scripts/check-ai-guard.sh <目标项目目录>
 示例：
 
 ```bash
-bash scripts/check-ai-guard.sh 案例/03_钓鱼爱好者移动端平台案例
+bash scripts/check-ai-guard.sh 案例/02_全栈生产力工具案例
 ```
 
 如果目标项目就是当前目录：
