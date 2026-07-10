@@ -1,0 +1,41 @@
+database:
+  name: full_stack_reference_case
+  engine: mysql
+  id_strategy: 32位字符串，使用 CHAR(32)，auto_increment: false
+
+tables:
+  task:
+    description: task table for reference case
+    primary_key:
+      name: id
+      type: CHAR(32)
+      auto_increment: false
+    seven_elements:
+      id:
+        type: CHAR(32)
+      created_by:
+        type: CHAR(32)
+      created_at:
+        type: TIMESTAMP
+      updated_by:
+        type: CHAR(32)
+      updated_at:
+        type: TIMESTAMP
+      is_valid:
+        type: TINYINT(1)
+      is_deleted:
+        type: TINYINT(1)
+    fields:
+      title:
+        type: VARCHAR(200)
+        required: true
+      description:
+        type: TEXT
+        required: false
+      status:
+        type: VARCHAR(50)
+        required: true
+    indexes:
+      - name: idx_task_status
+        fields:
+          - status
